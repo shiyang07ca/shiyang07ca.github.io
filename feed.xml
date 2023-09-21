@@ -1,5 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/shiyang07ca/gitblog</id><title>RSS feed of shiyang07ca's gitblog</title><updated>2023-09-15T08:26:30.424044+00:00</updated><link href="https://github.com/shiyang07ca/gitblog"/><link href="https://raw.githubusercontent.com/shiyang07ca/gitblog/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><entry><id>https://github.com/shiyang07ca/gitblog/issues/1</id><title>Fisrt Blog</title><updated>2023-09-15T08:26:30.609191+00:00</updated><content type="html"><![CDATA[<p>Test update </p>
+<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/shiyang07ca/gitblog</id><title>RSS feed of shiyang07ca's gitblog</title><updated>2023-09-21T15:40:09.351241+00:00</updated><link href="https://github.com/shiyang07ca/gitblog"/><link href="https://raw.githubusercontent.com/shiyang07ca/gitblog/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><entry><id>https://github.com/shiyang07ca/gitblog/issues/2</id><title>肉菜</title><updated>2023-09-21T15:40:09.621073+00:00</updated><content type="html"><![CDATA[<h1>脆皮五花肉</h1>
+<ul>
+<li>盐4，五香粉3，孜然粉3 黄酒腌肉</li>
+<li>脆皮水：
+水 50g，盐 4g，小苏打 3g，面碱 4g</li>
+<li>肉穿刺，刷白醋，脆皮水两遍，隔夜风干</li>
+<li>摸白醋，粗盐，160 50 分钟，230度 15 分钟</li>
+</ul>
+]]></content><link href="https://github.com/shiyang07ca/gitblog/issues/2" rel="alternate"/><published>2023-09-21T15:39:39+00:00</published></entry><entry><id>https://github.com/shiyang07ca/gitblog/issues/1</id><title>Fisrt Blog</title><updated>2023-09-21T15:40:09.743559+00:00</updated><content type="html"><![CDATA[<p>Test update </p>
 <h1>Test Style</h1>
 <h2>Layer</h2>
 <h1>Second</h1>
