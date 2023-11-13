@@ -1,13 +1,51 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/shiyang07ca/gitblog</id><title>RSS feed of shiyang07ca's gitblog</title><updated>2023-09-21T15:40:09.351241+00:00</updated><link href="https://github.com/shiyang07ca/gitblog"/><link href="https://raw.githubusercontent.com/shiyang07ca/gitblog/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><entry><id>https://github.com/shiyang07ca/gitblog/issues/2</id><title>肉菜</title><updated>2023-09-21T15:40:09.621073+00:00</updated><content type="html"><![CDATA[<h1>脆皮五花肉</h1>
+<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/shiyang07ca/gitblog</id><title>RSS feed of shiyang07ca's gitblog</title><updated>2023-11-14T06:02:02.183395+00:00</updated><link href="https://github.com/shiyang07ca/gitblog"/><link href="https://raw.githubusercontent.com/shiyang07ca/gitblog/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><entry><id>https://github.com/shiyang07ca/gitblog/issues/4</id><title>鱼虾海鲜河鲜类</title><updated>2023-11-14T06:02:02.367892+00:00</updated><content type="html"><![CDATA[<h1>TODO</h1>
+<h1>Test</h1>
+]]></content><link href="https://github.com/shiyang07ca/gitblog/issues/4" rel="alternate"/><category term="菜谱"/><published>2023-10-29T14:43:46+00:00</published></entry><entry><id>https://github.com/shiyang07ca/gitblog/issues/3</id><title>蔬菜类</title><updated>2023-11-14T06:02:02.457930+00:00</updated><content type="html"><![CDATA[<h1>果仁菠菜</h1>
+<ul>
+<li>菠菜用刀拍，撕成丝，切2寸长。</li>
+<li>下锅烫菠菜梗，开锅放菠菜叶，叶绿捞出。</li>
+<li>料汁：拍蒜，熟花生，盐，海鲜酱油，少点醋，辣椒油，少点糖。（放醋就少点糖）</li>
+<li>菠菜放凉，拧干水分再放料汁</li>
+</ul>
+]]></content><link href="https://github.com/shiyang07ca/gitblog/issues/3" rel="alternate"/><category term="菜谱"/><published>2023-10-29T14:42:19+00:00</published></entry><entry><id>https://github.com/shiyang07ca/gitblog/issues/2</id><title>肉菜类</title><updated>2023-11-14T06:02:02.548610+00:00</updated><content type="html"><![CDATA[<h1>脆皮五花肉</h1>
 <ul>
 <li>盐4，五香粉3，孜然粉3 黄酒腌肉</li>
 <li>脆皮水：
 水 50g，盐 4g，小苏打 3g，面碱 4g</li>
 <li>肉穿刺，刷白醋，脆皮水两遍，隔夜风干</li>
-<li>摸白醋，粗盐，160 50 分钟，230度 15 分钟</li>
+<li>摸白醋，粗盐，160度 50 分钟，230度 15 分钟</li>
 </ul>
-]]></content><link href="https://github.com/shiyang07ca/gitblog/issues/2" rel="alternate"/><published>2023-09-21T15:39:39+00:00</published></entry><entry><id>https://github.com/shiyang07ca/gitblog/issues/1</id><title>Fisrt Blog</title><updated>2023-09-21T15:40:09.743559+00:00</updated><content type="html"><![CDATA[<p>Test update </p>
+<h1>卤肉饭（赖皮猴版）</h1>
+<ul>
+<li>五花肉
+猪棒骨
+清水12斤
+姜片60克
+葱段60克
+香叶两片
+桂皮6克
+良姜7.5克
+草果3克
+拍破祛仔
+丁香3粒
+白寇一克
+八角1.5克
+花椒1克
+小茴香一克
+盐30克
+煮一个小时，切成 1.5cm 宽小长方条备用</li>
+<li>红葱头80克切丝,蒜片20克，干虾米 15g，锅中100g油炸香，炸成焦糖色，</li>
+<li>黄冰糖60克，酱油160克，绍兴酒100克，开大火熬化至起小泡。放入猪肉，耗油30克，虾米葱蒜酥，放入卤肉汤，中小火煮30分钟</li>
+</ul>
+<h1>卤肉饭（詹姆士）</h1>
+<p>材料：蒜头6颗、红葱头6颗、葱2根、猪五花肉丝1公斤、黑糖1匙、蚝油2匙、酱油</p>
+<p>1.五花肉切条倒入锅内，将猪油煸炒出来</p>
+<p>2.外表呈现熟的状态下，先加入红葱头煸炒出香味，然后再倒入蒜、葱、及1匙黑糖</p>
+<p>3.锅内加入2匙蚝油、少许酱油后，拌炒出酱香味</p>
+<p>4.加入米酒后，倒入水淹至猪肉表面</p>
+<p>5.撒入白胡椒粉，盖锅熬煮25分钟，完成</p>
+]]></content><link href="https://github.com/shiyang07ca/gitblog/issues/2" rel="alternate"/><category term="菜谱"/><published>2023-09-21T15:39:39+00:00</published></entry><entry><id>https://github.com/shiyang07ca/gitblog/issues/1</id><title>Fisrt Blog</title><updated>2023-11-14T06:02:02.635405+00:00</updated><content type="html"><![CDATA[<p>Test update </p>
 <h1>Test Style</h1>
 <h2>Layer</h2>
 <h1>Second</h1>

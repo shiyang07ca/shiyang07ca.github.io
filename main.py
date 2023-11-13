@@ -3,10 +3,10 @@ import argparse
 import os
 import re
 
-from marko.ext.gfm import gfm as marko
-from github import Github
 from feedgen.feed import FeedGenerator
+from github import Github
 from lxml.etree import CDATA
+from marko.ext.gfm import gfm as marko
 
 MD_HEAD = """## Gitblog
 My personal blog using issues and GitHub Actions (随意转载，无需署名)
