@@ -2,7 +2,7 @@
 template = 'home.html'
 
 [extra]
-lang = 'zh-CN'
+lang = 'en'
 +++
 
-Words about you
+Hi, welcome to my personal website.

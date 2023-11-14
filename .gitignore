@@ -5,3 +5,5 @@ venv/
 .venv/
 
 draft/
+
+content/blog/*.md

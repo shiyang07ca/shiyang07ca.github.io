@@ -22,7 +22,6 @@ def is_me(issue, me):
     return issue.user.login == me
 
 
-
 def format_time(time):
     return str(time)[:10]
 
@@ -56,8 +55,8 @@ def get_to_generate_issues(repo, dir_name, issue_number=None):
 
 
 template = """+++
-title = "xxxx"
-date = 2022-01-01
+title = "{}"
+date = {}
 draft = false
 
 [extra]
@@ -73,12 +72,13 @@ truncate_summary = false
 
 """
 
+
 def save_issue(issue, me, dir_name="content/blog"):
-    md_name = os.path.join(
-        dir_name, f"{issue.title.replace(' ', '.')}.md"
-    )
+    md_name = os.path.join(dir_name, f"{issue.title.replace(' ', '.')}.md")
     with open(md_name, "w") as f:
-        f.write(f"{template} \n\n")
+        f.write(
+            template.format(issue.title, issue.created_at.strftime("%Y-%m-%d"))
+            + "\n\n")
         f.write(f"# [{issue.title}]({issue.html_url})\n\n")
         f.write(issue.body)
         if issue.comments:
@@ -86,7 +86,6 @@ def save_issue(issue, me, dir_name="content/blog"):
                 if is_me(c, me):
                     f.write("\n\n---\n\n")
                     f.write(c.body)
-
 
 
 def main(token, repo_name, dir_name=BACKUP_DIR):
