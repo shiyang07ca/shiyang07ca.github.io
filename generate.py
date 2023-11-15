@@ -79,7 +79,7 @@ def save_issue(issue, me, dir_name="content/blog"):
         f.write(
             template.format(issue.title, issue.created_at.strftime("%Y-%m-%d"))
             + "\n\n")
-        f.write(f"# [{issue.title}]({issue.html_url})\n\n")
+        # f.write(f"# [{issue.title}]({issue.html_url})\n\n")
         f.write(issue.body)
         if issue.comments:
             for c in issue.get_comments():
