@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
+	<title>shiyang07ca::blog</title>
+	<subtitle>The blog of @shiyang07ca</subtitle>
+	<link href="https://shiyang07ca.github.io/blog/feed.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://shiyang07ca.github.io/blog/"/>
+	<updated>2023-11-14T00:00:00+00:00</updated>
+	<id>https://shiyang07ca.github.io/blog/feed.xml</id>
+	<entry xml:lang="zh-CN">
+		<title>工作学习计划</title>
+		<published>2023-11-14T00:00:00+00:00</published>
+		<updated>2023-11-14T00:00:00+00:00</updated>
+		<link href="https://shiyang07ca.github.io/blog/gong-zuo-xue-xi-ji-hua/" type="text/html"/>
+		<id>https://shiyang07ca.github.io/blog/gong-zuo-xue-xi-ji-hua/</id>
+		<content type="html">&lt;h1 id=&quot;xue-xi-ji-hua&quot;&gt;学习计划&lt;a class=&quot;zola-anchor&quot; href=&quot;#xue-xi-ji-hua&quot; aria-label=&quot;Anchor link for: xue-xi-ji-hua&quot;&gt;#&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+学习 k8s&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+南京大学《软件分析》&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+学习 Java 
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+Java ASM&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h1 id=&quot;blog-you-hua&quot;&gt;blog 优化&lt;a class=&quot;zola-anchor&quot; href=&quot;#blog-you-hua&quot; aria-label=&quot;Anchor link for: blog-you-hua&quot;&gt;#&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+配置 MkDocs 作为笔记子目录&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+支持 issue DRAFT 标签，zola 编译时不渲染文章&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+issue 标签自动嵌入 zola 模板中&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+优化文件自动备份策略&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+测试图片嵌入&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+测试公式&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+申请域名&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+配置 CDN 加速&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+测试 Vercel 部署&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+	<entry xml:lang="zh-CN">
+		<title>蔬菜类</title>
+		<published>2023-10-29T00:00:00+00:00</published>
+		<updated>2023-10-29T00:00:00+00:00</updated>
+		<link href="https://shiyang07ca.github.io/blog/shu-cai-lei/" type="text/html"/>
+		<id>https://shiyang07ca.github.io/blog/shu-cai-lei/</id>
+		<content type="html">&lt;h1 id=&quot;guo-ren-bo-cai&quot;&gt;果仁菠菜&lt;a class=&quot;zola-anchor&quot; href=&quot;#guo-ren-bo-cai&quot; aria-label=&quot;Anchor link for: guo-ren-bo-cai&quot;&gt;#&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;ul&gt;
+&lt;li&gt;菠菜用刀拍，撕成丝，切2寸长。&lt;&#x2F;li&gt;
+&lt;li&gt;下锅烫菠菜梗，开锅放菠菜叶，叶绿捞出。&lt;&#x2F;li&gt;
+&lt;li&gt;料汁：拍蒜，熟花生，盐，海鲜酱油，少点醋，辣椒油，少点糖。（放醋就少点糖）&lt;&#x2F;li&gt;
+&lt;li&gt;菠菜放凉，拧干水分再放料汁&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+	<entry xml:lang="zh-CN">
+		<title>鱼虾海鲜河鲜类</title>
+		<published>2023-10-29T00:00:00+00:00</published>
+		<updated>2023-10-29T00:00:00+00:00</updated>
+		<link href="https://shiyang07ca.github.io/blog/yu-xia-hai-xian-he-xian-lei/" type="text/html"/>
+		<id>https://shiyang07ca.github.io/blog/yu-xia-hai-xian-he-xian-lei/</id>
+		<content type="html">&lt;h1 id=&quot;todo&quot;&gt;TODO&lt;a class=&quot;zola-anchor&quot; href=&quot;#todo&quot; aria-label=&quot;Anchor link for: todo&quot;&gt;#&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;h1 id=&quot;test&quot;&gt;Test&lt;a class=&quot;zola-anchor&quot; href=&quot;#test&quot; aria-label=&quot;Anchor link for: test&quot;&gt;#&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+</content>
+	</entry>
+	<entry xml:lang="zh-CN">
+		<title>肉菜类</title>
+		<published>2023-09-21T00:00:00+00:00</published>
+		<updated>2023-09-21T00:00:00+00:00</updated>
+		<link href="https://shiyang07ca.github.io/blog/rou-cai-lei/" type="text/html"/>
+		<id>https://shiyang07ca.github.io/blog/rou-cai-lei/</id>
+		<content type="html">&lt;h1 id=&quot;cui-pi-wu-hua-rou&quot;&gt;脆皮五花肉&lt;a class=&quot;zola-anchor&quot; href=&quot;#cui-pi-wu-hua-rou&quot; aria-label=&quot;Anchor link for: cui-pi-wu-hua-rou&quot;&gt;#&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;ul&gt;
+&lt;li&gt;盐4，五香粉3，孜然粉3 黄酒腌肉&lt;&#x2F;li&gt;
+&lt;li&gt;脆皮水：
+水 50g，盐 4g，小苏打 3g，面碱 4g&lt;&#x2F;li&gt;
+&lt;li&gt;肉穿刺，刷白醋，脆皮水两遍，隔夜风干&lt;&#x2F;li&gt;
+&lt;li&gt;摸白醋，粗盐，160度 50 分钟，230度 15 分钟&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h1 id=&quot;lu-rou-fan-lai-pi-hou-ban&quot;&gt;卤肉饭（赖皮猴版）&lt;a class=&quot;zola-anchor&quot; href=&quot;#lu-rou-fan-lai-pi-hou-ban&quot; aria-label=&quot;Anchor link for: lu-rou-fan-lai-pi-hou-ban&quot;&gt;#&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;ul&gt;
+&lt;li&gt;五花肉
+猪棒骨
+清水12斤
+姜片60克
+葱段60克
+香叶两片
+桂皮6克
+良姜7.5克
+草果3克
+拍破祛仔
+丁香3粒
+白寇一克
+八角1.5克
+花椒1克
+小茴香一克
+盐30克
+煮一个小时，切成 1.5cm 宽小长方条备用&lt;&#x2F;li&gt;
+&lt;li&gt;红葱头80克切丝,蒜片20克，干虾米 15g，锅中100g油炸香，炸成焦糖色，&lt;&#x2F;li&gt;
+&lt;li&gt;黄冰糖60克，酱油160克，绍兴酒100克，开大火熬化至起小泡。放入猪肉，耗油30克，虾米葱蒜酥，放入卤肉汤，中小火煮30分钟&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h1 id=&quot;lu-rou-fan-zhan-mu-shi&quot;&gt;卤肉饭（詹姆士）&lt;a class=&quot;zola-anchor&quot; href=&quot;#lu-rou-fan-zhan-mu-shi&quot; aria-label=&quot;Anchor link for: lu-rou-fan-zhan-mu-shi&quot;&gt;#&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;p&gt;材料：蒜头6颗、红葱头6颗、葱2根、猪五花肉丝1公斤、黑糖1匙、蚝油2匙、酱油&lt;&#x2F;p&gt;
+&lt;p&gt;1.五花肉切条倒入锅内，将猪油煸炒出来&lt;&#x2F;p&gt;
+&lt;p&gt;2.外表呈现熟的状态下，先加入红葱头煸炒出香味，然后再倒入蒜、葱、及1匙黑糖&lt;&#x2F;p&gt;
+&lt;p&gt;3.锅内加入2匙蚝油、少许酱油后，拌炒出酱香味&lt;&#x2F;p&gt;
+&lt;p&gt;4.加入米酒后，倒入水淹至猪肉表面&lt;&#x2F;p&gt;
+&lt;p&gt;5.撒入白胡椒粉，盖锅熬煮25分钟，完成&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="zh-CN">
+		<title>Fisrt Blog</title>
+		<published>2023-05-22T00:00:00+00:00</published>
+		<updated>2023-05-22T00:00:00+00:00</updated>
+		<link href="https://shiyang07ca.github.io/blog/fisrt-blog/" type="text/html"/>
+		<id>https://shiyang07ca.github.io/blog/fisrt-blog/</id>
+		<content type="html">&lt;p&gt;Test update &lt;&#x2F;p&gt;
+&lt;h1 id=&quot;test-style&quot;&gt;Test Style&lt;a class=&quot;zola-anchor&quot; href=&quot;#test-style&quot; aria-label=&quot;Anchor link for: test-style&quot;&gt;#&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;layer&quot;&gt;Layer&lt;a class=&quot;zola-anchor&quot; href=&quot;#layer&quot; aria-label=&quot;Anchor link for: layer&quot;&gt;#&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;h1 id=&quot;second&quot;&gt;Second&lt;a class=&quot;zola-anchor&quot; href=&quot;#second&quot; aria-label=&quot;Anchor link for: second&quot;&gt;#&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;test-config-update&quot;&gt;Test config update&lt;a class=&quot;zola-anchor&quot; href=&quot;#test-config-update&quot; aria-label=&quot;Anchor link for: test-config-update&quot;&gt;#&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+</content>
+	</entry>
+</feed>
