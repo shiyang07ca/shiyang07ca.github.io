@@ -1,5 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/shiyang07ca/shiyang07ca.github.io</id><title>RSS feed of shiyang07ca's shiyang07ca.github.io</title><updated>2024-08-17T12:46:00.593558+00:00</updated><link href="https://github.com/shiyang07ca/shiyang07ca.github.io"/><link href="https://raw.githubusercontent.com/shiyang07ca/shiyang07ca.github.io/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/5</id><title>工作学习计划</title><updated>2024-08-17T12:46:00.878443+00:00</updated><content type="html"><![CDATA[<h1>TODO: blog 优化</h1>
+<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/shiyang07ca/shiyang07ca.github.io</id><title>RSS feed of shiyang07ca's shiyang07ca.github.io</title><updated>2024-08-17T13:02:43.240944+00:00</updated><link href="https://github.com/shiyang07ca/shiyang07ca.github.io"/><link href="https://raw.githubusercontent.com/shiyang07ca/shiyang07ca.github.io/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/6</id><title>小吃类</title><updated>2024-08-17T13:02:43.588610+00:00</updated><content type="html"><![CDATA[<h2>烤冷面-赖皮猴版</h2>
+<ul>
+<li>利民蒜蓉辣酱 80 克，天山红番茄沙司 100 克，白糖 40 克，太太乐鸡粉 10 克，味精 10 克，耗油 6 克，户户辣椒酱 10 克，半颗粒孜然粉 4 克，玉米淀粉 2 克，雪碧 20 克，清水 130 克。在锅中搅拌均匀熬好</li>
+<li>葱花香菜洋葱碎适量</li>
+<li>锅中适量油，放入冷面，下面刺水加热变软，打鸡蛋，翻面刷酱料，撒葱花香菜洋葱碎，卷好刷酱料撒芝麻出锅，可以适量蓬醋</li>
+</ul>
+]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/6"/><published>2024-08-17T13:02:16+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/5</id><title>工作学习计划</title><updated>2024-08-17T13:02:43.755911+00:00</updated><content type="html"><![CDATA[<h1>TODO: blog 优化</h1>
 <ul>
 <li><input disabled="" type="checkbox"> 配置 MkDocs 作为笔记子目录</li>
 <li><input disabled="" type="checkbox"> 支持 issue DRAFT 标签，zola 编译时不渲染文章</li>
@@ -11,16 +17,16 @@
 <li><input disabled="" type="checkbox"> 配置 CDN 加速</li>
 <li><input disabled="" type="checkbox"> 测试 Vercel 部署</li>
 </ul>
-]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/5"/><category term="TODO"/><published>2023-11-14T11:33:33+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/4</id><title>鱼虾海鲜河鲜类</title><updated>2024-08-17T12:46:01.020500+00:00</updated><content type="html"><![CDATA[<h1>TODO</h1>
+]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/5"/><category term="TODO"/><published>2023-11-14T11:33:33+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/4</id><title>鱼虾海鲜河鲜类</title><updated>2024-08-17T13:02:43.903292+00:00</updated><content type="html"><![CDATA[<h1>TODO</h1>
 <h1>Test</h1>
-]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/4"/><category term="菜谱"/><published>2023-10-29T14:43:46+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/3</id><title>蔬菜类</title><updated>2024-08-17T12:46:01.170454+00:00</updated><content type="html"><![CDATA[<h1>果仁菠菜</h1>
+]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/4"/><category term="菜谱"/><published>2023-10-29T14:43:46+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/3</id><title>蔬菜类</title><updated>2024-08-17T13:02:44.047427+00:00</updated><content type="html"><![CDATA[<h1>果仁菠菜</h1>
 <ul>
 <li>菠菜用刀拍，撕成丝，切2寸长。</li>
 <li>下锅烫菠菜梗，开锅放菠菜叶，叶绿捞出。</li>
 <li>料汁：拍蒜，熟花生，盐，海鲜酱油，少点醋，辣椒油，少点糖。（放醋就少点糖）</li>
 <li>菠菜放凉，拧干水分再放料汁</li>
 </ul>
-]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/3"/><category term="菜谱"/><published>2023-10-29T14:42:19+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/2</id><title>肉菜类</title><updated>2024-08-17T12:46:01.307261+00:00</updated><content type="html"><![CDATA[<h1>脆皮五花肉</h1>
+]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/3"/><category term="菜谱"/><published>2023-10-29T14:42:19+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/2</id><title>肉菜类</title><updated>2024-08-17T13:02:44.193053+00:00</updated><content type="html"><![CDATA[<h1>脆皮五花肉</h1>
 <ul>
 <li>盐4，五香粉3，孜然粉3 黄酒腌肉</li>
 <li>脆皮水：
@@ -57,7 +63,7 @@
 <p>3.锅内加入2匙蚝油、少许酱油后，拌炒出酱香味</p>
 <p>4.加入米酒后，倒入水淹至猪肉表面</p>
 <p>5.撒入白胡椒粉，盖锅熬煮25分钟，完成</p>
-]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/2"/><category term="菜谱"/><published>2023-09-21T15:39:39+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/1</id><title>Fisrt Blog</title><updated>2024-08-17T12:46:01.457178+00:00</updated><content type="html"><![CDATA[<p>Test update </p>
+]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/2"/><category term="菜谱"/><published>2023-09-21T15:39:39+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/1</id><title>Fisrt Blog</title><updated>2024-08-17T13:02:44.347514+00:00</updated><content type="html"><![CDATA[<p>Test update </p>
 <h1>Test Style</h1>
 <h2>Layer</h2>
 <h1>Second</h1>
