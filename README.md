@@ -14,10 +14,7 @@ My personal blog using issues and GitHub Actions (随意转载，无需署名)
 - [蔬菜类](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/3)--2023-10-29
 - [肉菜类](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/2)--2023-09-21
 ## TODO
-TODO list from [工作学习计划](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/5)--12 jobs to do--0 jobs done
-- [ ] 学习 k8s
-- [ ] 南京大学《软件分析》
-- [ ] 学习 Java 
+TODO list from [工作学习计划](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/5)--9 jobs to do--0 jobs done
 - [ ] 配置 MkDocs 作为笔记子目录
 - [ ] 支持 issue DRAFT 标签，zola 编译时不渲染文章
 - [ ] issue 标签自动嵌入 zola 模板中
