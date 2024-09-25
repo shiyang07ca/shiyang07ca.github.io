@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/shiyang07ca/shiyang07ca.github.io</id><title>RSS feed of shiyang07ca's shiyang07ca.github.io</title><updated>2024-09-01T06:20:15.481923+00:00</updated><link href="https://github.com/shiyang07ca/shiyang07ca.github.io"/><link href="https://raw.githubusercontent.com/shiyang07ca/shiyang07ca.github.io/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/6</id><title>小吃类</title><updated>2024-09-01T06:20:15.655276+00:00</updated><content type="html"><![CDATA[<h2>烤冷面-赖皮猴版</h2>
+<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/shiyang07ca/shiyang07ca.github.io</id><title>RSS feed of shiyang07ca's shiyang07ca.github.io</title><updated>2024-09-25T03:43:45.275331+00:00</updated><link href="https://github.com/shiyang07ca/shiyang07ca.github.io"/><link href="https://raw.githubusercontent.com/shiyang07ca/shiyang07ca.github.io/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/6</id><title>小吃类</title><updated>2024-09-25T03:43:45.681521+00:00</updated><content type="html"><![CDATA[<h2>烤冷面-赖皮猴版</h2>
 <ul>
 <li>利民蒜蓉辣酱 80 克，天山红番茄沙司 100 克，白糖 40 克，太太乐鸡粉 10 克，味精 10 克，耗油 6 克，户户辣椒酱 10 克，半颗粒孜然粉 4 克，玉米淀粉 2 克，雪碧 20 克，清水 130 克。在锅中搅拌均匀熬好</li>
 <li>葱花香菜洋葱碎适量</li>
 <li>锅中适量油，放入冷面，下面刺水加热变软，打鸡蛋，翻面刷酱料，撒葱花香菜洋葱碎，卷好刷酱料撒芝麻出锅，可以适量蓬醋</li>
 </ul>
-]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/6"/><category term="菜谱"/><published>2024-08-17T13:02:16+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/5</id><title>TODO</title><updated>2024-09-01T06:20:15.738041+00:00</updated><content type="html"><![CDATA[<h1>TODO: blog 优化</h1>
+]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/6"/><category term="菜谱"/><published>2024-08-17T13:02:16+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/5</id><title>TODO</title><updated>2024-09-25T03:43:45.849108+00:00</updated><content type="html"><![CDATA[<h1>TODO: blog 优化</h1>
 <ul>
 <li><input disabled="" type="checkbox"> 配置 MkDocs 作为笔记子目录</li>
 <li><input disabled="" type="checkbox"> 支持 issue DRAFT 标签，zola 编译时不渲染文章</li>
@@ -17,9 +17,15 @@
 <li><input disabled="" type="checkbox"> 配置 CDN 加速</li>
 <li><input disabled="" type="checkbox"> 测试 Vercel 部署</li>
 </ul>
-]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/5"/><category term="TODO"/><published>2023-11-14T11:33:33+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/4</id><title>鱼虾海鲜河鲜类</title><updated>2024-09-01T06:20:15.836250+00:00</updated><content type="html"><![CDATA[<h1>TODO</h1>
-<h1>Test</h1>
-]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/4"/><category term="菜谱"/><published>2023-10-29T14:43:46+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/3</id><title>蔬菜类</title><updated>2024-09-01T06:20:15.929364+00:00</updated><content type="html"><![CDATA[<h1>果仁菠菜</h1>
+]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/5"/><category term="TODO"/><published>2023-11-14T11:33:33+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/4</id><title>鱼虾海鲜河鲜类</title><updated>2024-09-25T03:43:46.027672+00:00</updated><content type="html"><![CDATA[<h1>TODO</h1>
+<h2>杂鱼酱油水</h2>
+<ul>
+<li>小杂鱼改斜刀（叶子鱼，梭子鱼，刺中鱼，金线鱼，朱带，黄花，黄刺，银鲳鱼）</li>
+<li>姜切丝，蒜，豆豉，小米辣切碎。萝卜干泡水切丁</li>
+<li>糖，生抽，老抽，蚝油，花雕酒，水，葱油白胡椒调碗汁备用</li>
+<li>锅烧热放底油，放入姜蒜豆豉小米椒，放入萝卜干，鱼（注意不需要煎鱼），倒入碗汁，小火煮制 5 分钟。出国放葱段，葱油</li>
+</ul>
+]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/4"/><category term="菜谱"/><published>2023-10-29T14:43:46+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/3</id><title>蔬菜类</title><updated>2024-09-25T03:43:46.183746+00:00</updated><content type="html"><![CDATA[<h1>果仁菠菜</h1>
 <ul>
 <li>菠菜用刀拍，撕成丝，切2寸长。</li>
 <li>下锅烫菠菜梗，开锅放菠菜叶，叶绿捞出。</li>
@@ -33,7 +39,7 @@
 <li>锅中留底油，加入葱姜片煸炒。小火加入花椒面，酱油，香其酱煸炒。放入清水，加入茄子和土豆。根据汤的咸淡看是否需要补盐</li>
 <li>茄子土豆炖熟后捣成酱，注意锅中要留一些汤。快出锅时加入葱花，青椒碎，蒜沫，香菜沫</li>
 </ul>
-]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/3"/><category term="菜谱"/><published>2023-10-29T14:42:19+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/2</id><title>肉菜类</title><updated>2024-09-01T06:20:16.071129+00:00</updated><content type="html"><![CDATA[<h1>脆皮五花肉</h1>
+]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/3"/><category term="菜谱"/><published>2023-10-29T14:42:19+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/2</id><title>肉菜类</title><updated>2024-09-25T03:43:46.353571+00:00</updated><content type="html"><![CDATA[<h1>脆皮五花肉</h1>
 <ul>
 <li>盐4，五香粉3，孜然粉3 黄酒腌肉</li>
 <li>脆皮水：
@@ -70,7 +76,7 @@
 <p>3.锅内加入2匙蚝油、少许酱油后，拌炒出酱香味</p>
 <p>4.加入米酒后，倒入水淹至猪肉表面</p>
 <p>5.撒入白胡椒粉，盖锅熬煮25分钟，完成</p>
-]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/2"/><category term="菜谱"/><published>2023-09-21T15:39:39+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/1</id><title>Fisrt Blog</title><updated>2024-09-01T06:20:16.152564+00:00</updated><content type="html"><![CDATA[<p>Test update </p>
+]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/2"/><category term="菜谱"/><published>2023-09-21T15:39:39+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/1</id><title>Fisrt Blog</title><updated>2024-09-25T03:43:46.527444+00:00</updated><content type="html"><![CDATA[<p>Test update </p>
 <h1>Test Style</h1>
 <h2>Layer</h2>
 <h1>Second</h1>
