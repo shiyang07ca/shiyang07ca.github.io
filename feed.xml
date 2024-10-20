@@ -1,84 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/shiyang07ca/shiyang07ca.github.io</id><title>RSS feed of shiyang07ca's shiyang07ca.github.io</title><updated>2024-10-20T07:15:14.509382+00:00</updated><link href="https://github.com/shiyang07ca/shiyang07ca.github.io"/><link href="https://raw.githubusercontent.com/shiyang07ca/shiyang07ca.github.io/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/7</id><title>Python type challenges</title><updated>2024-10-20T07:15:14.732849+00:00</updated><content type="html"><![CDATA[<ul>
-<li>
-<a href="#python-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%9C%80%E8%A6%81%E7%B1%BB%E5%9E%8B-1">Python 为什么要需要类型 1</a><ul>
-<li><a href="#%E4%B8%80%E4%BA%9B%E6%9C%89%E7%94%A8%E7%9A%84%E8%B5%84%E6%96%99">一些有用的资料</a></li>
-</ul>
-</li>
-<li>
-<a href="#python-%E7%B1%BB%E5%9E%8B%E5%9F%BA%E7%A1%80">Python 类型基础</a><ul>
-<li>
-<a href="#%E5%B8%B8%E8%A7%81%E5%85%B3%E9%94%AE%E5%AD%97">常见关键字</a><ul>
-<li><a href="#union">Union</a></li>
-<li><a href="#optional">Optional</a></li>
-<li><a href="#typevar">TypeVar</a></li>
-<li><a href="#any">Any</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B1%BB%E5%9E%8B%E5%88%AB%E5%90%8D-typealias">类型别名 (TypeAlias)</a></li>
-<li><a href="#newtype">NewType</a></li>
-</ul>
-</li>
-<li>
-<a href="#%E5%87%BD%E6%95%B0">函数</a><ul>
-<li><a href="#%E5%8F%AF%E8%B0%83%E7%94%A8%E5%AF%B9%E8%B1%A1callable">可调用对象（Callable）</a></li>
-<li><a href="#paramspec">Paramspec</a></li>
-<li><a href="#concatenate">Concatenate</a></li>
-<li><a href="#unpack">unpack</a></li>
-<li>
-<a href="#typevartuple">TypeVarTuple</a><ul>
-<li><a href="#%E7%A4%BA%E4%BE%8B">示例</a></li>
-<li><a href="#%E7%A4%BA%E4%BE%8B-2">示例 2</a></li>
-</ul>
-</li>
-<li><a href="#typeguard">TypeGuard</a></li>
-</ul>
-</li>
-<li>
-<a href="#%E7%B1%BB">类</a><ul>
-<li><a href="#classvar">ClassVar</a></li>
-<li><a href="#self">Self</a></li>
-</ul>
-</li>
-<li>
-<a href="#%E6%B3%9B%E5%9E%8Bgeneric">泛型（Generic）</a><ul>
-<li><a href="#typevar-1">TypeVar</a></li>
-<li><a href="#%E6%B3%9B%E5%9E%8B%E5%87%BD%E6%95%B0generic-functions">泛型函数（Generic Functions）</a></li>
-<li>
-<a href="#%E6%B3%9B%E5%9E%8B%E7%B1%BB">泛型类</a><ul>
-<li><a href="#%E6%B3%9B%E5%9E%8B%E7%B1%BB%E5%AE%9A%E4%B9%89">泛型类定义</a></li>
-</ul>
-</li>
-<li><a href="#%E6%B3%9B%E5%9E%8B%E5%92%8C%E7%BB%A7%E6%89%BF">泛型和继承</a></li>
-<li><a href="#overload">overload</a></li>
-<li><a href="#protocol">Protocol</a></li>
-<li><a href="#callable-protocol">callable-protocol</a></li>
-</ul>
-</li>
-<li><a href="#typeddict">TypedDict</a></li>
-<li>
-<a href="#%E5%85%B6%E4%BB%96">其他</a><ul>
-<li><a href="#literal">Literal</a></li>
-<li><a href="#literalstring">LiteralString</a></li>
-<li><a href="#%E8%A3%85%E9%A5%B0%E5%99%A8decorator">装饰器（decorator）</a></li>
-<li><a href="#%E6%8F%8F%E8%BF%B0%E5%99%A8descriptor">描述器（descriptor）</a></li>
-<li><a href="#%E7%94%9F%E6%88%90%E5%99%A8generator">生成器（generator）</a></li>
-<li><a href="#never">never</a></li>
-<li><a href="#buffer">buffer</a></li>
-</ul>
-</li>
-<li><a href="#todo-%E5%8D%8F%E5%8F%98%E9%80%86%E5%8F%98%E4%B8%8D%E5%8F%98covariant-contravariant-invariant">TODO: 协变，逆变，不变(covariant, contravariant, invariant)</a></li>
-<li>
-<a href="#%E6%8E%92%E6%9F%A5%E5%B7%A5%E5%85%B7">排查工具</a><ul>
-<li><a href="#%E4%BD%BF%E7%94%A8-reveal_type-%E6%9F%A5%E7%9C%8B%E6%8E%A8%E6%96%AD%E7%B1%BB%E5%9E%8B">使用 <code>reveal_type</code> 查看推断类型</a></li>
-<li><a href="#%E4%BD%BF%E7%94%A8-cast-%E6%9D%A5%E5%BC%BA%E5%88%B6%E6%8C%87%E5%AE%9A%E7%B1%BB%E5%9E%8B">使用 <code>cast</code> 来强制指定类型：</a></li>
-<li><a href="#%E4%BD%BF%E7%94%A8%E7%B1%BB%E5%9E%8B%E5%BF%BD%E7%95%A5%E6%A0%87%E8%AE%B0%E7%A6%81%E7%94%A8%E4%B8%80%E8%A1%8C%E4%B8%AD%E7%9A%84%E9%94%99%E8%AF%AF">使用类型忽略标记禁用一行中的错误：</a></li>
-</ul>
-</li>
-<li><a href="#%E7%94%9F%E6%88%90-type-annotation">生成 type annotation</a></li>
-<li><a href="#%E4%B8%80%E4%BA%9B%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7">一些类型检查工具</a></li>
-</ul>
-<h2>Python 为什么要需要类型 <a href="https://bernat.tech/posts/the-state-of-type-hints-in-python/">1</a></h2>
+<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/shiyang07ca/shiyang07ca.github.io</id><title>RSS feed of shiyang07ca's shiyang07ca.github.io</title><updated>2024-10-20T07:20:35.123481+00:00</updated><link href="https://github.com/shiyang07ca/shiyang07ca.github.io"/><link href="https://raw.githubusercontent.com/shiyang07ca/shiyang07ca.github.io/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/7</id><title>Python type challenges</title><updated>2024-10-20T07:20:35.315727+00:00</updated><content type="html"><![CDATA[<h2>Python 为什么要需要类型 <a href="https://bernat.tech/posts/the-state-of-type-hints-in-python/">1</a></h2>
 <ul>
 <li>标注所有参数和返回类型可以更容易理解代码，更易于修改或添加代码</li>
 <li>在使用库时，可以更容易地检查类型，方便 IDE 代码补全以及检查错误参数</li>
@@ -1037,13 +958,13 @@ reveal_type(c)         # -&gt; error: Revealed type is &#x27;builtins.list[built
 <li><a href="https://github.com/google/pytype">google/pytype: A static type analyzer for Python code</a></li>
 </ol>
 <hr />
-]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/7"/><published>2024-10-20T07:10:34+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/6</id><title>小吃类</title><updated>2024-10-20T07:15:14.892941+00:00</updated><content type="html"><![CDATA[<h2>烤冷面-赖皮猴版</h2>
+]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/7"/><category term="Python"/><published>2024-10-20T07:10:34+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/6</id><title>小吃类</title><updated>2024-10-20T07:20:35.425059+00:00</updated><content type="html"><![CDATA[<h2>烤冷面-赖皮猴版</h2>
 <ul>
 <li>利民蒜蓉辣酱 80 克，天山红番茄沙司 100 克，白糖 40 克，太太乐鸡粉 10 克，味精 10 克，耗油 6 克，户户辣椒酱 10 克，半颗粒孜然粉 4 克，玉米淀粉 2 克，雪碧 20 克，清水 130 克。在锅中搅拌均匀熬好</li>
 <li>葱花香菜洋葱碎适量</li>
 <li>锅中适量油，放入冷面，下面刺水加热变软，打鸡蛋，翻面刷酱料，撒葱花香菜洋葱碎，卷好刷酱料撒芝麻出锅，可以适量蓬醋</li>
 </ul>
-]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/6"/><category term="菜谱"/><published>2024-08-17T13:02:16+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/5</id><title>TODO</title><updated>2024-10-20T07:15:14.971989+00:00</updated><content type="html"><![CDATA[<h1>TODO: blog 优化</h1>
+]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/6"/><category term="菜谱"/><published>2024-08-17T13:02:16+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/5</id><title>TODO</title><updated>2024-10-20T07:20:35.518308+00:00</updated><content type="html"><![CDATA[<h1>TODO: blog 优化</h1>
 <ul>
 <li><input disabled="" type="checkbox"> 配置 MkDocs 作为笔记子目录</li>
 <li><input disabled="" type="checkbox"> 支持 issue DRAFT 标签，zola 编译时不渲染文章</li>
@@ -1055,7 +976,7 @@ reveal_type(c)         # -&gt; error: Revealed type is &#x27;builtins.list[built
 <li><input disabled="" type="checkbox"> 配置 CDN 加速</li>
 <li><input disabled="" type="checkbox"> 测试 Vercel 部署</li>
 </ul>
-]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/5"/><category term="TODO"/><published>2023-11-14T11:33:33+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/4</id><title>鱼虾海鲜河鲜类</title><updated>2024-10-20T07:15:15.079912+00:00</updated><content type="html"><![CDATA[<h1>TODO</h1>
+]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/5"/><category term="TODO"/><published>2023-11-14T11:33:33+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/4</id><title>鱼虾海鲜河鲜类</title><updated>2024-10-20T07:20:35.587355+00:00</updated><content type="html"><![CDATA[<h1>TODO</h1>
 <h2>酱油水煮杂鱼</h2>
 <ul>
 <li>小杂鱼改斜刀（叶子鱼，梭子鱼，刺中鱼，金线鱼，朱带，黄花，黄刺，银鲳鱼）</li>
@@ -1063,7 +984,7 @@ reveal_type(c)         # -&gt; error: Revealed type is &#x27;builtins.list[built
 <li>糖，生抽，老抽，蚝油，花雕酒，水，葱油白胡椒调碗汁备用</li>
 <li>锅烧热放底油，放入姜蒜豆豉小米椒，放入萝卜干，鱼（注意不需要煎鱼），倒入碗汁，小火煮制 5 分钟，出锅放葱段，葱油</li>
 </ul>
-]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/4"/><category term="菜谱"/><published>2023-10-29T14:43:46+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/3</id><title>蔬菜类</title><updated>2024-10-20T07:15:15.216258+00:00</updated><content type="html"><![CDATA[<h1>果仁菠菜</h1>
+]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/4"/><category term="菜谱"/><published>2023-10-29T14:43:46+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/3</id><title>蔬菜类</title><updated>2024-10-20T07:20:35.653506+00:00</updated><content type="html"><![CDATA[<h1>果仁菠菜</h1>
 <ul>
 <li>菠菜用刀拍，撕成丝，切2寸长。</li>
 <li>下锅烫菠菜梗，开锅放菠菜叶，叶绿捞出。</li>
@@ -1077,7 +998,7 @@ reveal_type(c)         # -&gt; error: Revealed type is &#x27;builtins.list[built
 <li>锅中留底油，加入葱姜片煸炒。小火加入花椒面，酱油，香其酱煸炒。放入清水，加入茄子和土豆。根据汤的咸淡看是否需要补盐</li>
 <li>茄子土豆炖熟后捣成酱，注意锅中要留一些汤。快出锅时加入葱花，青椒碎，蒜沫，香菜沫</li>
 </ul>
-]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/3"/><category term="菜谱"/><published>2023-10-29T14:42:19+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/2</id><title>肉菜类</title><updated>2024-10-20T07:15:15.308926+00:00</updated><content type="html"><![CDATA[<h1>脆皮五花肉</h1>
+]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/3"/><category term="菜谱"/><published>2023-10-29T14:42:19+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/2</id><title>肉菜类</title><updated>2024-10-20T07:20:35.738802+00:00</updated><content type="html"><![CDATA[<h1>脆皮五花肉</h1>
 <ul>
 <li>盐4，五香粉3，孜然粉3 黄酒腌肉</li>
 <li>脆皮水：
@@ -1114,7 +1035,7 @@ reveal_type(c)         # -&gt; error: Revealed type is &#x27;builtins.list[built
 <p>3.锅内加入2匙蚝油、少许酱油后，拌炒出酱香味</p>
 <p>4.加入米酒后，倒入水淹至猪肉表面</p>
 <p>5.撒入白胡椒粉，盖锅熬煮25分钟，完成</p>
-]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/2"/><category term="菜谱"/><published>2023-09-21T15:39:39+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/1</id><title>Fisrt Blog</title><updated>2024-10-20T07:15:15.405072+00:00</updated><content type="html"><![CDATA[<p>Test update </p>
+]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/2"/><category term="菜谱"/><published>2023-09-21T15:39:39+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/1</id><title>Fisrt Blog</title><updated>2024-10-20T07:20:35.807419+00:00</updated><content type="html"><![CDATA[<p>Test update </p>
 <h1>Test Style</h1>
 <h2>Layer</h2>
 <h1>Second</h1>

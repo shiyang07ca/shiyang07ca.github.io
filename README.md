@@ -7,6 +7,8 @@ My personal blog using issues and GitHub Actions (随意转载，无需署名)
 - [TODO](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/5)--2023-11-14
 - [鱼虾海鲜河鲜类](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/4)--2023-10-29
 - [蔬菜类](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/3)--2023-10-29
+## Python
+- [Python type challenges](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/7)--2024-10-20
 ## test
 - [Fisrt Blog](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/1)--2023-05-22
 ## 菜谱
