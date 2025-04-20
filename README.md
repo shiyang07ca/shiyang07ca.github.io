@@ -2,20 +2,20 @@
 My personal blog using issues and GitHub Actions (随意转载，无需署名)
 [RSS Feed](https://raw.githubusercontent.com/shiyang07ca/shiyang07ca.github.io/master/feed.xml)
 ## 最近更新
+- [凉菜类](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/8)--2025-04-20
 - [Python type challenges](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/7)--2024-10-20
 - [小吃类](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/6)--2024-08-17
 - [TODO](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/5)--2023-11-14
 - [鱼虾海鲜河鲜类](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/4)--2023-10-29
-- [蔬菜类](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/3)--2023-10-29
 ## Python
 - [Python type challenges](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/7)--2024-10-20
 ## test
 - [Fisrt Blog](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/1)--2023-05-22
-## 菜谱
+- [凉菜类](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/8)--2025-04-20
 - [小吃类](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/6)--2024-08-17
 - [鱼虾海鲜河鲜类](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/4)--2023-10-29
 - [蔬菜类](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/3)--2023-10-29
-- [肉菜类](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/2)--2023-09-21
+- [猪肉类](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/2)--2023-09-21
 ## TODO
 TODO list from [TODO](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/5)--9 jobs to do--0 jobs done
 - [ ] 配置 MkDocs 作为笔记子目录
