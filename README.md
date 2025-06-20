@@ -2,11 +2,11 @@
 My personal blog using issues and GitHub Actions (随意转载，无需署名)
 [RSS Feed](https://raw.githubusercontent.com/shiyang07ca/shiyang07ca.github.io/master/feed.xml)
 ## 最近更新
+- [牛羊肉类](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/10)--2025-06-20
 - [汤类](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/9)--2025-04-20
 - [凉菜类](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/8)--2025-04-20
 - [Python type challenges](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/7)--2024-10-20
 - [小吃类](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/6)--2024-08-17
-- [TODO](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/5)--2023-11-14
 ## Python
 - [Python type challenges](https://github.com/shiyang07ca/shiyang07ca.github.io/issues/7)--2024-10-20
 ## test
