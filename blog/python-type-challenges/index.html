@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  
+  
+  
+
+  <title>Python type challenges</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Signika&display=swap" rel="stylesheet">
+  <style>
+
+  /* light mode colors */
+  body {
+    --primary-color: #698bcf;
+    --primary-pale-color: #698bcf1c;
+    --text-color: #3C4043;
+    --text-pale-color: #9aa2b9;
+    --bg-color: #ffffff; 
+    --highlight-mark-color: #5f75b045;
+  
+    --callout-note-color: #698bcf;
+    --callout-important-color: #9971d9;
+    --callout-warning-color: #c99054;
+    --callout-alert-color: #d35757;
+    --callout-question-color: #4985a2;
+    --callout-tip-color: #3ea06f;
+  }
+
+  /* dark mode colors */
+  body.dark {
+    --primary-color: #698bcf;
+    --primary-pale-color: #698bcf1c;
+    --text-color: #9197a5;
+    --text-pale-color: #5d6470;
+    --bg-color: #202124;
+    --highlight-mark-color: #5f75b045;
+
+    --callout-note-color: #698bcf;
+    --callout-important-color: #9971d9;
+    --callout-warning-color: #c99054;
+    --callout-alert-color: #d35757;
+    --callout-question-color: #4985a2;
+    --callout-tip-color: #3ea06f;
+  }
+
+  /* typography */
+  body {
+    --main-font: 'Signika', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --code-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --homepage-max-width: 750px;
+    --main-max-width: 750px;
+    --avatar-size: 70px;
+    --paragraph-font-size: 18px;
+    --paragraph-line-height: 1.75;
+    --aside-font-size: 16px;
+    --img-border-radius: 0px;
+    --inline-code-border-radius: 2px;
+  }
+
+</style>
+
+  <link rel="stylesheet" href="/main.css">
+  
+
+
+
+  
+</head>
+
+<body class="post">
+  <script>if (localStorage.getItem('theme') == 'dark') { document.body.classList.add('dark'); const hl = document.querySelector('link#hl'); if (hl) hl.href = '/hl-dark.css'; }</script>
+  
+<header  class="blur" >
+  <div id="header-wrapper">
+    <nav>
+      <a href="/">shiyang07ca</a>
+      
+        <span class="separator">::</span>
+      
+      
+        
+        <a href="&#x2F;blog">blog</a>
+      
+    </nav>
+    <div id="btns">
+      
+      
+      
+
+      
+      
+      <a href="&#x2F;blog/feed.xml" aria-label="rss feed"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M3 17C5.20914 17 7 18.7909 7 21H3V17ZM3 10C9.07513 10 14 14.9249 14 21H12C12 16.0294 7.97056 12 3 12V10ZM3 3C12.9411 3 21 11.0589 21 21H19C19 12.1634 11.8366 5 3 5V3Z" fill="currentColor"></path></svg></a>
+      
+      
+
+      
+      
+      <button id="theme-toggle" aria-label="theme switch" data-moon-icon="&lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;24&quot; height=&quot;24&quot;&gt;&lt;path d=&quot;M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z&quot; fill=&quot;currentColor&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;svg&gt;" data-sun-icon="&lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;24&quot; height=&quot;24&quot;&gt;&lt;path d=&quot;M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z&quot; fill=&quot;currentColor&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;svg&gt;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z" fill="currentColor"></path></svg>
+      </button>
+
+      
+      
+      
+      
+      <button id="toc-toggle" aria-label="table of content">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M3 4H21V6H3V4ZM3 11H15V13H3V11ZM3 18H21V20H3V18Z" fill="currentColor"></path></svg>
+      </button>
+      
+      
+    </div>
+  </div>
+</header>
+<div id="wrapper">
+  <div id="blank"></div>
+  <aside  class="blur" >
+    
+    
+    <nav>
+      <ul>
+        
+        <li>
+          <a class="h2" href="#python-wei-shi-yao-yao-xu-yao-lei-xing-1">Python 为什么要需要类型 1</a>
+          
+          <ul>
+            
+            <li>
+              <a class="h3" href="#yi-xie-you-yong-de-zi-liao">一些有用的资料</a>
+            </li>
+            
+          </ul>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#python-lei-xing-ji-chu">Python 类型基础</a>
+          
+          <ul>
+            
+            <li>
+              <a class="h3" href="#chang-jian-guan-jian-zi">常见关键字</a>
+            </li>
+            
+            <li>
+              <a class="h3" href="#lei-xing-bie-ming-typealias">类型别名 (TypeAlias)</a>
+            </li>
+            
+            <li>
+              <a class="h3" href="#newtype">NewType</a>
+            </li>
+            
+          </ul>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#han-shu">函数</a>
+          
+          <ul>
+            
+            <li>
+              <a class="h3" href="#ke-diao-yong-dui-xiang-callable">可调用对象（Callable）</a>
+            </li>
+            
+            <li>
+              <a class="h3" href="#paramspec">Paramspec</a>
+            </li>
+            
+            <li>
+              <a class="h3" href="#concatenate">Concatenate</a>
+            </li>
+            
+            <li>
+              <a class="h3" href="#unpack">unpack</a>
+            </li>
+            
+            <li>
+              <a class="h3" href="#typevartuple">TypeVarTuple</a>
+            </li>
+            
+            <li>
+              <a class="h3" href="#typeguard">TypeGuard</a>
+            </li>
+            
+          </ul>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#lei">类</a>
+          
+          <ul>
+            
+            <li>
+              <a class="h3" href="#classvar">ClassVar</a>
+            </li>
+            
+            <li>
+              <a class="h3" href="#self">Self</a>
+            </li>
+            
+          </ul>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#fan-xing-generic">泛型（Generic）</a>
+          
+          <ul>
+            
+            <li>
+              <a class="h3" href="#typevar-1">TypeVar</a>
+            </li>
+            
+            <li>
+              <a class="h3" href="#fan-xing-han-shu-generic-functions">泛型函数（Generic Functions）</a>
+            </li>
+            
+            <li>
+              <a class="h3" href="#fan-xing-lei">泛型类</a>
+            </li>
+            
+            <li>
+              <a class="h3" href="#fan-xing-he-ji-cheng">泛型和继承</a>
+            </li>
+            
+            <li>
+              <a class="h3" href="#overload">overload</a>
+            </li>
+            
+            <li>
+              <a class="h3" href="#protocol">Protocol</a>
+            </li>
+            
+            <li>
+              <a class="h3" href="#callable-protocol">callable-protocol</a>
+            </li>
+            
+          </ul>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#typeddict">TypedDict</a>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#qi-ta">其他</a>
+          
+          <ul>
+            
+            <li>
+              <a class="h3" href="#literal">Literal</a>
+            </li>
+            
+            <li>
+              <a class="h3" href="#literalstring">LiteralString</a>
+            </li>
+            
+            <li>
+              <a class="h3" href="#zhuang-shi-qi-decorator">装饰器（decorator）</a>
+            </li>
+            
+            <li>
+              <a class="h3" href="#miao-shu-qi-descriptor">描述器（descriptor）</a>
+            </li>
+            
+            <li>
+              <a class="h3" href="#sheng-cheng-qi-generator">生成器（generator）</a>
+            </li>
+            
+            <li>
+              <a class="h3" href="#never">never</a>
+            </li>
+            
+            <li>
+              <a class="h3" href="#buffer">buffer</a>
+            </li>
+            
+          </ul>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#todo-xie-bian-ni-bian-bu-bian-covariant-contravariant-invariant">TODO: 协变，逆变，不变(covariant, contravariant, invariant)</a>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#pai-cha-gong-ju">排查工具</a>
+          
+          <ul>
+            
+            <li>
+              <a class="h3" href="#shi-yong-reveal-type-cha-kan-tui-duan-lei-xing">使用 reveal_type 查看推断类型</a>
+            </li>
+            
+            <li>
+              <a class="h3" href="#shi-yong-cast-lai-qiang-zhi-zhi-ding-lei-xing">使用 cast 来强制指定类型：</a>
+            </li>
+            
+            <li>
+              <a class="h3" href="#shi-yong-lei-xing-hu-lue-biao-ji-jin-yong-yi-xing-zhong-de-cuo-wu">使用类型忽略标记禁用一行中的错误：</a>
+            </li>
+            
+          </ul>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#sheng-cheng-type-annotation">生成 type annotation</a>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#yi-xie-lei-xing-jian-cha-gong-ju">一些类型检查工具</a>
+          
+        </li>
+        
+      </ul>
+    </nav>
+    
+    
+    <button id="back-to-top" aria-label="back to top">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M11.9997 10.8284L7.04996 15.7782L5.63574 14.364L11.9997 8L18.3637 14.364L16.9495 15.7782L11.9997 10.8284Z" fill="currentColor"></path></svg>
+    </button>
+    
+  </aside>
+  <main>
+    <div>
+      
+      
+      
+      
+      <div id="copy-cfg" style="display: none;" data-copy-icon="&lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;24&quot; height=&quot;24&quot;&gt;&lt;path d=&quot;M6.9998 6V3C6.9998 2.44772 7.44752 2 7.9998 2H19.9998C20.5521 2 20.9998 2.44772 20.9998 3V17C20.9998 17.5523 20.5521 18 19.9998 18H16.9998V20.9991C16.9998 21.5519 16.5499 22 15.993 22H4.00666C3.45059 22 3 21.5554 3 20.9991L3.0026 7.00087C3.0027 6.44811 3.45264 6 4.00942 6H6.9998ZM5.00242 8L5.00019 20H14.9998V8H5.00242ZM8.9998 6H16.9998V16H18.9998V4H8.9998V6Z&quot; fill=&quot;currentColor&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;svg&gt;" data-check-icon="&lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;24&quot; height=&quot;24&quot;&gt;&lt;path d=&quot;M10.0007 15.1709L19.1931 5.97852L20.6073 7.39273L10.0007 17.9993L3.63672 11.6354L5.05093 10.2212L10.0007 15.1709Z&quot; fill=&quot;currentColor&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;svg&gt;"></div>
+      
+      
+      <article class="prose" data-backlink-icon="&lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;20&quot; height=&quot;20&quot;&gt;&lt;path d=&quot;M9.41421 8L18.0208 16.6066L16.6066 18.0208L8 9.41421V17H6V6H17V8H9.41421Z&quot; fill=&quot;currentColor&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;svg&gt;">
+        <h1>Python type challenges</h1>
+        <div id="post-info">
+          <div id="date">
+            <span id="publish">2024-10-20</span>
+            </div>
+
+          
+
+          
+        </div>
+
+        
+        
+
+        
+
+        
+
+        
+          <h2 id="python-wei-shi-yao-yao-xu-yao-lei-xing-1">Python 为什么要需要类型 <a rel="nofollow noreferrer" href="https://bernat.tech/posts/the-state-of-type-hints-in-python/">1</a><a class="zola-anchor" href="#python-wei-shi-yao-yao-xu-yao-lei-xing-1" aria-label="Anchor link for: python-wei-shi-yao-yao-xu-yao-lei-xing-1">#</a></h2>
+<ul>
+<li>标注所有参数和返回类型可以更容易理解代码，更易于修改或添加代码</li>
+<li>在使用库时，可以更容易地检查类型，方便 IDE 代码补全以及检查错误参数</li>
+<li>可以使使用 linter 工具可以提前发现类型错误</li>
+<li>运行时数据验证工具，例如：<a rel="nofollow noreferrer" href="https://github.com/pydantic/pydantic">pydantic</a></li>
+</ul>
+<h3 id="yi-xie-you-yong-de-zi-liao">一些有用的资料<a class="zola-anchor" href="#yi-xie-you-yong-de-zi-liao" aria-label="Anchor link for: yi-xie-you-yong-de-zi-liao">#</a></h3>
+<ul>
+<li><a rel="nofollow noreferrer" href="https://bernat.tech/posts/the-state-of-type-hints-in-python/">The state of type hints in Python · Tech articles by Bernát Gábor</a></li>
+<li><a rel="nofollow noreferrer" href="https://github.com/laike9m/Python-Type-Challenges">laike9m/Python-Type-Challenges: Master Python typing (type hints) with interactive online exercises!</a></li>
+<li><a rel="nofollow noreferrer" href="https://peps.python.org/pep-0484/">PEP 484 – Type Hints | peps.python.org</a></li>
+<li><a rel="nofollow noreferrer" href="https://bruceyuan.com/post/python-type-challenge-basic.html">Python 类型体操训练（一）– 基础篇 | 用代码打点酱油的chaofa</a></li>
+</ul>
+<h2 id="python-lei-xing-ji-chu">Python 类型基础<a class="zola-anchor" href="#python-lei-xing-ji-chu" aria-label="Anchor link for: python-lei-xing-ji-chu">#</a></h2>
+<h3 id="chang-jian-guan-jian-zi">常见关键字<a class="zola-anchor" href="#chang-jian-guan-jian-zi" aria-label="Anchor link for: chang-jian-guan-jian-zi">#</a></h3>
+<h4 id="union">Union<a class="zola-anchor" href="#union" aria-label="Anchor link for: union">#</a></h4>
+<p><code>Union[X, Y]</code> 等价于 <code>X | Y</code> (3.10 及以上)，意味着满足 <code>X</code> 或 <code>Y</code> 之一。
+参数必须是某种类型(<code>X</code> 或 <code>Y</code>)，且至少有一个。</p>
+<h4 id="optional">Optional<a class="zola-anchor" href="#optional" aria-label="Anchor link for: optional">#</a></h4>
+<p><code>Optional[X]</code> 等价于 <code>X | None</code> （或 <code>Union[X, None]</code> ） 。</p>
+<h4 id="typevar">TypeVar<a class="zola-anchor" href="#typevar" aria-label="Anchor link for: typevar">#</a></h4>
+<p>可以使用 <code>TypeVar</code> 构造定义它自己的通用容器：</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>T = </span><span style="color:#bf616a;">TypeVar</span><span>(&#39;</span><span style="color:#a3be8c;">T</span><span>&#39;)
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Magic</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">Generic</span><span style="color:#eff1f5;">[T]):
+</span><span>      </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">value</span><span>: T) -&gt; </span><span style="color:#d08770;">None</span><span>:
+</span><span>         </span><span style="color:#bf616a;">self</span><span>.value : T = value
+</span><span>
+</span><span> </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">square_values</span><span>(</span><span style="color:#bf616a;">vars</span><span>: Iterable[Magic[int]]) -&gt; </span><span style="color:#d08770;">None</span><span>:
+</span><span>     v.value = v.value * v.value
+</span></code></pre>
+<p><code>TypeVar</code> 还可以通过指定多个类型参数来创建泛型，表示参数可以是这些类型之一：</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>T = </span><span style="color:#bf616a;">TypeVar</span><span>(&#39;</span><span style="color:#a3be8c;">T</span><span>&#39;, int, str)  </span><span style="color:#65737e;"># T 可以是 int 或 str
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">add</span><span>(</span><span style="color:#bf616a;">x</span><span>: T, </span><span style="color:#bf616a;">y</span><span>: T) -&gt; T:
+</span><span>    </span><span style="color:#b48ead;">return </span><span>x + y
+</span></code></pre>
+<h4 id="any">Any<a class="zola-anchor" href="#any" aria-label="Anchor link for: any">#</a></h4>
+<p>可以使用 <code>Any</code> 类型可以在不需要的地方禁用类型检查：</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">foo</span><span>(</span><span style="color:#bf616a;">item</span><span>: Any) -&gt; int:
+</span><span>     item.</span><span style="color:#bf616a;">bar</span><span>()
+</span></code></pre>
+<h3 id="lei-xing-bie-ming-typealias">类型别名 (TypeAlias)<a class="zola-anchor" href="#lei-xing-bie-ming-typealias" aria-label="Anchor link for: lei-xing-bie-ming-typealias">#</a></h3>
+<p>类型别名是使用 <code>type</code> 语句来定义的，它将创建一个 <code>TypeAliasType</code> 的实例。 在这个
+示例中，Vector 和 list[float] 将被静态类型检查器等同处理:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#96b5b4;">type </span><span>Vector = list[float]
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">scale</span><span>(</span><span style="color:#bf616a;">scalar</span><span>: float, </span><span style="color:#bf616a;">vector</span><span>: Vector) -&gt; Vector:
+</span><span>    </span><span style="color:#b48ead;">return </span><span>[scalar * num </span><span style="color:#b48ead;">for </span><span>num </span><span style="color:#b48ead;">in </span><span>vector]
+</span><span>
+</span><span style="color:#65737e;"># 通过类型检查；浮点数列表是合格的 Vector。
+</span><span>new_vector = </span><span style="color:#bf616a;">scale</span><span>(</span><span style="color:#d08770;">2.0</span><span>, [</span><span style="color:#d08770;">1.0</span><span>, -</span><span style="color:#d08770;">4.2</span><span>, </span><span style="color:#d08770;">5.4</span><span>])
+</span></code></pre>
+<p><code>type</code> 语句是在 Python 3.12 中新增加的。 为了向下兼容，类型别名也可以通过简单的赋
+值来创建:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>Vector = list[float]
+</span></code></pre>
+<p>也可以用 TypeAlias 标记来显式说明这是一个类型别名：</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>TypeAlias
+</span><span>
+</span><span>Vector: TypeAlias = list[float]
+</span></code></pre>
+<h3 id="newtype">NewType<a class="zola-anchor" href="#newtype" aria-label="Anchor link for: newtype">#</a></h3>
+<p><code>NewType</code> 用于创建一个新的类型，它与原始类型具有相同的值，但类型检查器会将其视为
+不同的类型。</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>NewType
+</span><span>
+</span><span>UserId = </span><span style="color:#bf616a;">NewType</span><span>(&#39;</span><span style="color:#a3be8c;">UserId</span><span>&#39;, int)
+</span><span>some_id = </span><span style="color:#bf616a;">UserId</span><span>(</span><span style="color:#d08770;">524313</span><span>)
+</span></code></pre>
+<p>静态类型检查器把新类型当作原始类型的子类，这种方式适用于捕捉逻辑错误：</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">get_user_name</span><span>(</span><span style="color:#bf616a;">user_id</span><span>: UserId) -&gt; str:
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span style="color:#65737e;"># 通过类型检查
+</span><span>user_a = </span><span style="color:#bf616a;">get_user_name</span><span>(</span><span style="color:#bf616a;">UserId</span><span>(</span><span style="color:#d08770;">42351</span><span>))
+</span><span>
+</span><span style="color:#65737e;"># 未通过类型检查；整数不能作为 UserId
+</span><span>user_b = </span><span style="color:#bf616a;">get_user_name</span><span>(-</span><span style="color:#d08770;">1</span><span>)
+</span></code></pre>
+<blockquote>
+<p><strong>备注</strong> 请记住使用类型别名将声明两个类型是相互 等价 的。 使用 type Alias =
+Original 将使静态类型检查器在任何情况下都把 Alias 视为与 Original 完全等价。 这
+在你想要简化复杂的类型签名时会很有用处。
+反之，NewType 声明把一种类型当作另一种类型的 子类型。Derived =
+NewType(‘Derived’, Original) 时，静态类型检查器把 Derived 当作 Original 的 子类
+，即，Original 类型的值不能用在预期 Derived 类型的位置。这种方式适用于以最小运行
+时成本防止逻辑错误。</p>
+</blockquote>
+<h2 id="han-shu">函数<a class="zola-anchor" href="#han-shu" aria-label="Anchor link for: han-shu">#</a></h2>
+<h3 id="ke-diao-yong-dui-xiang-callable">可调用对象（Callable）<a class="zola-anchor" href="#ke-diao-yong-dui-xiang-callable" aria-label="Anchor link for: ke-diao-yong-dui-xiang-callable">#</a></h3>
+<p><code>Callable[[int], str]</code> 表示一个接受 <code>int</code> 类型的单个形参并返回一个 <code>str</code> 的函数。</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>collections.abc </span><span style="color:#b48ead;">import </span><span>Callable, Awaitable
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">feeder</span><span>(</span><span style="color:#bf616a;">get_next_item</span><span>: Callable[[], str]) -&gt; </span><span style="color:#d08770;">None</span><span>:
+</span><span>    </span><span style="color:#d08770;">...  </span><span style="color:#65737e;"># 函数体
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">async_query</span><span>(</span><span style="color:#bf616a;">on_success</span><span>: Callable[[int], </span><span style="color:#d08770;">None</span><span>],
+</span><span>                </span><span style="color:#bf616a;">on_error</span><span>: Callable[[int, Exception], </span><span style="color:#d08770;">None</span><span>]) -&gt; </span><span style="color:#d08770;">None</span><span>:
+</span><span>    </span><span style="color:#d08770;">...  </span><span style="color:#65737e;"># 函数体
+</span><span>
+</span><span style="color:#b48ead;">async def </span><span style="color:#8fa1b3;">on_update</span><span>(</span><span style="color:#bf616a;">value</span><span>: str) -&gt; </span><span style="color:#d08770;">None</span><span>:
+</span><span>    </span><span style="color:#d08770;">...  </span><span style="color:#65737e;"># 函数体
+</span><span>
+</span><span>callback: Callable[[str], Awaitable[</span><span style="color:#d08770;">None</span><span>]] = on_update
+</span></code></pre>
+<p>如果不确定参数数量，可以使用 <code>Callable[..., ReturnType]</code> 来表示任意数量的参数</p>
+<h3 id="paramspec">Paramspec<a class="zola-anchor" href="#paramspec" aria-label="Anchor link for: paramspec">#</a></h3>
+<p>ParamSpec 是 Python 3.10 引入的，它允许你在类型提示中使用可变数量和类型的参数。
+主要用于以下场景:</p>
+<ol>
+<li>定义高阶函数(接受或返回其他函数的函数)的类型</li>
+<li>保留原始函数的参数签名信息</li>
+</ol>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>Callable, ParamSpec, TypeVar
+</span><span>
+</span><span style="color:#65737e;"># Before 3.12 you have to write:
+</span><span style="color:#65737e;"># P = ParamSpec(&#39;P&#39;)  # 定义 ParamSpec
+</span><span style="color:#65737e;"># R = TypeVar(&#39;R&#39;)  # 定义返回类型的 TypeVar
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">add_logging</span><span>[**</span><span style="color:#8fa1b3;">P</span><span>, </span><span style="color:#8fa1b3;">R</span><span>](</span><span style="color:#bf616a;">f</span><span>: Callable[P, R]) -&gt; Callable[P, R]:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">wrapped</span><span>(*</span><span style="color:#bf616a;">args</span><span>: P.args, **</span><span style="color:#bf616a;">kwargs</span><span>: P.kwargs) -&gt; R:
+</span><span>        </span><span style="color:#96b5b4;">print</span><span>(</span><span style="color:#b48ead;">f</span><span>&quot;</span><span style="color:#a3be8c;">Calling </span><span>{f.__name__}&quot;)
+</span><span>        </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">f</span><span>(*args, **kwargs)
+</span><span>    </span><span style="color:#b48ead;">return </span><span>wrapped
+</span><span>
+</span><span>@</span><span style="color:#bf616a;">add_logging
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">greet</span><span>(</span><span style="color:#bf616a;">name</span><span>: str) -&gt; str:
+</span><span>    </span><span style="color:#b48ead;">return f</span><span>&quot;</span><span style="color:#a3be8c;">Hello, </span><span>{name}</span><span style="color:#a3be8c;">!</span><span>&quot;
+</span><span>
+</span><span>result = </span><span style="color:#bf616a;">greet</span><span>(&quot;</span><span style="color:#a3be8c;">Alice</span><span>&quot;)
+</span><span style="color:#96b5b4;">print</span><span>(result)
+</span></code></pre>
+<h3 id="concatenate">Concatenate<a class="zola-anchor" href="#concatenate" aria-label="Anchor link for: concatenate">#</a></h3>
+<p>主要用于与 Callable 和 ParamSpec（参数规格）配合使用。它允许我们在类型提示中将多
+个参数类型拼接在一起，从而创建更灵活的函数类型提示。</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>Concatenate, Callable, ParamSpec, TypeVar
+</span><span>
+</span><span>P = </span><span style="color:#bf616a;">ParamSpec</span><span>(&#39;</span><span style="color:#a3be8c;">P</span><span>&#39;)  </span><span style="color:#65737e;"># 定义一个参数规格
+</span><span>T = </span><span style="color:#bf616a;">TypeVar</span><span>(&#39;</span><span style="color:#a3be8c;">T</span><span>&#39;)    </span><span style="color:#65737e;"># 定义一个泛型类型
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">decorator</span><span>(</span><span style="color:#bf616a;">func</span><span>: Callable[Concatenate[int, P], T]) -&gt; Callable[P, T]:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">wrapper</span><span>(*</span><span style="color:#bf616a;">args</span><span>: P.args, **</span><span style="color:#bf616a;">kwargs</span><span>: P.kwargs) -&gt; T:
+</span><span>        </span><span style="color:#96b5b4;">print</span><span>(&quot;</span><span style="color:#a3be8c;">Adding an integer argument</span><span>&quot;)
+</span><span>        </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">func</span><span>(</span><span style="color:#d08770;">42</span><span>, *args, **kwargs)  </span><span style="color:#65737e;"># 在调用原函数时插入一个整数参数
+</span><span>    </span><span style="color:#b48ead;">return </span><span>wrapper
+</span></code></pre>
+<h3 id="unpack">unpack<a class="zola-anchor" href="#unpack" aria-label="Anchor link for: unpack">#</a></h3>
+<p>Python 3.11 开始引入了类型参数展开（Type Parameter Unpacking），可以通过 * 操作
+符解包类型参数。这允许你在类型提示中处理变长的参数列表和泛型参数。</p>
+<p>Unpack 也可以与 typing.TypedDict 一起使用以便在函数签名中对 **kwargs 进行类型标
+注</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span style="color:#65737e;">TODO:
+</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">`foo` expects two keyword arguments - `name` of type `str`, and `age` of type `int`.
+</span><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span>
+</span><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>Unpack, TypedDict
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Person</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">TypedDict</span><span style="color:#eff1f5;">):
+</span><span>    name: str
+</span><span>    age: int
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">foo</span><span>(**</span><span style="color:#bf616a;">kwargs</span><span>: Unpack[Person]):
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#65737e;">## End of your code ##
+</span><span>person: Person = {&quot;</span><span style="color:#a3be8c;">name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">The Meaning of Life</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">age</span><span>&quot;: </span><span style="color:#d08770;">1983</span><span>}
+</span><span style="color:#bf616a;">foo</span><span>(**person)
+</span><span style="color:#bf616a;">foo</span><span>(**{&quot;</span><span style="color:#a3be8c;">name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Brian</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">age</span><span>&quot;: </span><span style="color:#d08770;">30</span><span>})
+</span><span>
+</span><span style="color:#bf616a;">foo</span><span>(**{&quot;</span><span style="color:#a3be8c;">name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Brian</span><span>&quot;})  </span><span style="color:#65737e;"># expect-type-error
+</span><span>person2: dict[str, object] = {&quot;</span><span style="color:#a3be8c;">name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Brian</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">age</span><span>&quot;: </span><span style="color:#d08770;">20</span><span>}
+</span><span style="color:#bf616a;">foo</span><span>(**person2)  </span><span style="color:#65737e;"># expect-type-error
+</span><span style="color:#bf616a;">foo</span><span>(**{&quot;</span><span style="color:#a3be8c;">name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Brian</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">age</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">1979</span><span>&quot;})  </span><span style="color:#65737e;"># expect-type-error
+</span></code></pre>
+<h3 id="typevartuple">TypeVarTuple<a class="zola-anchor" href="#typevartuple" aria-label="Anchor link for: typevartuple">#</a></h3>
+<p>TypeVarTuple 可以定义“变长元组”（variadic tuples）类型。这种类型提示可以捕获多个
+类型，并且允许元组长度动态变化。它类似于泛型中的 TypeVar，但 TypeVarTuple 是专门
+用于处理可变数量的类型参数的。</p>
+<p>TypeVarTuple 用于定义一组任意数量的类型参数，它们可以一起表示一个变长的元组或任
+意长的参数列表。</p>
+<p>TypeVarTuple 定义一个类型元组，它可以代表任意数量的类型。
+Unpack 用于从 TypeVarTuple 中提取类型参数，并应用到函数或类中。</p>
+<h4 id="shi-li">示例<a class="zola-anchor" href="#shi-li" aria-label="Anchor link for: shi-li">#</a></h4>
+<p>定义一个函数，它接受一个 Tuple，其中的元素可以是任意类型，并返回这个元组。我们可
+以使用 TypeVarTuple 来定义这样一个函数：</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>TypeVarTuple, Tuple, Unpack
+</span><span>
+</span><span>Ts = </span><span style="color:#bf616a;">TypeVarTuple</span><span>(&#39;</span><span style="color:#a3be8c;">Ts</span><span>&#39;)  </span><span style="color:#65737e;"># 定义一个类型元组 Ts
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">my_tuple_func</span><span>(</span><span style="color:#bf616a;">t</span><span>: Tuple[Unpack[Ts]]) -&gt; Tuple[Unpack[Ts]]:
+</span><span>    </span><span style="color:#b48ead;">return </span><span>t
+</span><span>
+</span><span style="color:#65737e;"># 我们可以使用这个函数处理不同类型和长度的元组：
+</span><span style="color:#96b5b4;">print</span><span>(</span><span style="color:#bf616a;">my_tuple_func</span><span>((</span><span style="color:#d08770;">1</span><span>, &#39;</span><span style="color:#a3be8c;">a</span><span>&#39;, </span><span style="color:#d08770;">3.14</span><span>)))  </span><span style="color:#65737e;"># 输出：(1, &#39;a&#39;, 3.14)
+</span><span style="color:#96b5b4;">print</span><span>(</span><span style="color:#bf616a;">my_tuple_func</span><span>((</span><span style="color:#d08770;">True</span><span>,)))         </span><span style="color:#65737e;"># 输出：(True,)
+</span></code></pre>
+<p>在这个例子中：</p>
+<ul>
+<li><code>Ts = TypeVarTuple('Ts')</code> 定义了一个类型变量 <code>Ts</code>，它可以代表一组类型。</li>
+<li><code>my_tuple_func</code> 函数接受一个 Tuple，这个元组的类型是由 <code>Unpack[Ts]</code> 解包的。</li>
+<li><code>Tuple[Unpack[Ts]]</code> 表示这个元组可以包含多个类型。</li>
+</ul>
+<h4 id="shi-li-2">示例 2<a class="zola-anchor" href="#shi-li-2" aria-label="Anchor link for: shi-li-2">#</a></h4>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span style="color:#65737e;">TODO:
+</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">Define an `Array` type that supports element-wise addition of arrays with identical dimensions and types.
+</span><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span>
+</span><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>Generic, TypeVar, TypeVarTuple, assert_type
+</span><span>
+</span><span>T = </span><span style="color:#bf616a;">TypeVar</span><span>(&quot;</span><span style="color:#a3be8c;">T</span><span>&quot;)
+</span><span>Ts = </span><span style="color:#bf616a;">TypeVarTuple</span><span>(&quot;</span><span style="color:#a3be8c;">Ts</span><span>&quot;)
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Array</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">Generic</span><span style="color:#eff1f5;">[</span><span>*</span><span style="color:#eff1f5;">Ts]):
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__add__</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">other</span><span>: &quot;</span><span style="color:#a3be8c;">Array[*Ts]</span><span>&quot;) -&gt; &quot;</span><span style="color:#a3be8c;">Array[*Ts]</span><span>&quot;:
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#65737e;">## End of your code ##
+</span><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>assert_type
+</span><span>
+</span><span>a: Array[float, int] = </span><span style="color:#bf616a;">Array</span><span>()
+</span><span>b: Array[float, int] = </span><span style="color:#bf616a;">Array</span><span>()
+</span><span style="color:#bf616a;">assert_type</span><span>(a + b, Array[float, int])
+</span><span>
+</span><span>c: Array[float, int, str] = </span><span style="color:#bf616a;">Array</span><span>()
+</span><span style="color:#bf616a;">assert_type</span><span>(a + c, Array[float, int, str])  </span><span style="color:#65737e;"># expect-type-error
+</span></code></pre>
+<hr />
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>P = </span><span style="color:#bf616a;">ParamSpec</span><span>(&#39;</span><span style="color:#a3be8c;">P</span><span>&#39;)
+</span><span>R = </span><span style="color:#bf616a;">TypeVar</span><span>(&#39;</span><span style="color:#a3be8c;">R</span><span>&#39;)
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">add_logging</span><span>(</span><span style="color:#bf616a;">f</span><span>: Callable[P, R]) -&gt; Callable[P, R]:
+</span><span>    </span><span style="color:#d08770;">...
+</span></code></pre>
+<h3 id="typeguard">TypeGuard<a class="zola-anchor" href="#typeguard" aria-label="Anchor link for: typeguard">#</a></h3>
+<p><code>TypeGuard</code> 是一种类型提示，用于告诉类型检查器某个函数在运行时能够对变量的类型进
+行校验和收缩。它通常用于类型推断工具（例如 <code>mypy</code>）来缩小类型范围。</p>
+<p>假设我们有一个函数 <code>is_str_list</code>，它接受一个 <code>list</code> 并检查该列表中的所有元素是否都是
+字符串。我们希望在通过该检查后，类型检查器能够推断出列表是由字符串组成的。</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>List, TypeGuard, Union
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">is_str_list</span><span>(</span><span style="color:#bf616a;">values</span><span>: List[Union[str, int]]) -&gt; TypeGuard[List[str]]:
+</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#96b5b4;">all</span><span>(</span><span style="color:#96b5b4;">isinstance</span><span>(v, str) </span><span style="color:#b48ead;">for </span><span>v </span><span style="color:#b48ead;">in </span><span>values)
+</span><span>
+</span><span style="color:#65737e;"># 使用示例
+</span><span>my_list: List[Union[str, int]] = [&quot;</span><span style="color:#a3be8c;">a</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">b</span><span>&quot;, </span><span style="color:#d08770;">1</span><span>]
+</span><span>
+</span><span style="color:#b48ead;">if </span><span style="color:#bf616a;">is_str_list</span><span>(my_list):
+</span><span>    </span><span style="color:#65737e;"># 这里类型检查器会推断 my_list 的类型为 List[str]
+</span><span>    </span><span style="color:#96b5b4;">print</span><span>(&quot;</span><span style="color:#a3be8c;">All elements are strings</span><span>&quot;)
+</span></code></pre>
+<p>在这个例子中：</p>
+<p><code>is_str_list</code> 是一个自定义类型守卫函数，使用 <code>TypeGuard</code> 来标注返回值。
+返回类型 <code>TypeGuard[List[str]]</code> 告诉类型检查器，如果 <code>is_str_list</code> 返回 <code>True</code>，
+则传入的 <code>values</code> 类型会被认为是 <code>List[str]</code>。</p>
+<p>因此，当我们在 <code>if</code> 语句中调用 <code>is_str_list</code> 后，<code>my_list</code> 的类型会自动缩小到
+<code>List[str]</code>，而不再是最初的 <code>List[Union[str, int]]</code>。</p>
+<h2 id="lei">类<a class="zola-anchor" href="#lei" aria-label="Anchor link for: lei">#</a></h2>
+<h3 id="classvar">ClassVar<a class="zola-anchor" href="#classvar" aria-label="Anchor link for: classvar">#</a></h3>
+<p><code>ClassVar</code> 注解是指，给定属性应当用作类变量，而不应设置在类实例上。用法如下：</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Starship</span><span style="color:#eff1f5;">:
+</span><span>    stats: ClassVar[dict[str, int]] = {} </span><span style="color:#65737e;"># 类变量
+</span><span>    damage: int = </span><span style="color:#d08770;">10                     </span><span style="color:#65737e;"># 实例变量
+</span></code></pre>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span style="color:#65737e;">TODO:
+</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">Class `Foo` has a class variable `bar`, which is an integer.
+</span><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>ClassVar
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Foo</span><span style="color:#eff1f5;">:
+</span><span>    bar: ClassVar[int]
+</span><span>    </span><span style="color:#65737e;">&quot;&quot;&quot;Hint: No need to write __init__&quot;&quot;&quot;
+</span><span>
+</span><span>
+</span><span style="color:#65737e;">## End of your code ##
+</span><span>Foo.bar = </span><span style="color:#d08770;">1
+</span><span>Foo.bar = &quot;</span><span style="color:#a3be8c;">1</span><span>&quot;  </span><span style="color:#65737e;"># expect-type-error
+</span><span style="color:#bf616a;">Foo</span><span>().bar = </span><span style="color:#d08770;">1  </span><span style="color:#65737e;"># expect-type-error
+</span></code></pre>
+<h3 id="self">Self<a class="zola-anchor" href="#self" aria-label="Anchor link for: self">#</a></h3>
+<p>表示当前闭包内的类</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>Self, reveal_type
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Foo</span><span style="color:#eff1f5;">:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">return_self</span><span>(</span><span style="color:#bf616a;">self</span><span>) -&gt; Self:
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>        </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">self
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SubclassOfFoo</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">Foo</span><span style="color:#eff1f5;">): </span><span style="color:#b48ead;">pass
+</span><span>
+</span><span style="color:#bf616a;">reveal_type</span><span>(</span><span style="color:#bf616a;">Foo</span><span>().</span><span style="color:#bf616a;">return_self</span><span>())  </span><span style="color:#65737e;"># 揭示的类型为 &quot;Foo&quot;
+</span><span style="color:#bf616a;">reveal_type</span><span>(</span><span style="color:#bf616a;">SubclassOfFoo</span><span>().</span><span style="color:#bf616a;">return_self</span><span>())  </span><span style="color:#65737e;"># 揭示的类型为 &quot;SubclassOfFoo&quot;
+</span></code></pre>
+<p>此注解在语法上等价于以下代码，但形式更为简洁：</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>TypeVar
+</span><span>
+</span><span>Self = </span><span style="color:#bf616a;">TypeVar</span><span>(&quot;</span><span style="color:#a3be8c;">Self</span><span>&quot;, </span><span style="color:#bf616a;">bound</span><span>=&quot;</span><span style="color:#a3be8c;">Foo</span><span>&quot;)
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Foo</span><span style="color:#eff1f5;">:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">return_self</span><span>(</span><span style="color:#bf616a;">self</span><span>: Self) -&gt; Self:
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>        </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">self
+</span></code></pre>
+<p>通常来说，如果某些内容返回 <code>self</code>，如上面的示例所示，您应该使用 <code>Self</code> 作为返回
+值注解。如果 <code>Foo.return_self</code> 被注解为返回 <code>&quot;Foo&quot;</code>，那么类型检查器将推断从
+<code>SubclassOfFoo.return_self</code> 返回的对象是 <code>Foo</code> 类型，而不是 <code>SubclassOfFoo</code>。</p>
+<p>challenge:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span style="color:#65737e;">TODO:
+</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">`return_self` should return an instance of the same type as the current enclosed class.
+</span><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span>
+</span><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>Self
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Foo</span><span style="color:#eff1f5;">:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">return_self</span><span>(</span><span style="color:#bf616a;">self</span><span>) -&gt; Self:
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#65737e;"># Another solution using TypeVar
+</span><span style="color:#65737e;"># from typing import TypeVar
+</span><span style="color:#65737e;">#
+</span><span style="color:#65737e;"># T = TypeVar(&#39;T&#39;, bound=&#39;Foo&#39;)
+</span><span style="color:#65737e;">#
+</span><span style="color:#65737e;"># class Foo:
+</span><span style="color:#65737e;">#     def return_self(self: T) -&gt; T:
+</span><span style="color:#65737e;">#         ...
+</span><span>
+</span><span>
+</span><span style="color:#65737e;">## End of your code ##
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SubclassOfFoo</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">Foo</span><span style="color:#eff1f5;">):
+</span><span>    </span><span style="color:#b48ead;">pass
+</span><span>
+</span><span>
+</span><span>f: Foo = </span><span style="color:#bf616a;">Foo</span><span>().</span><span style="color:#bf616a;">return_self</span><span>()
+</span><span>sf: SubclassOfFoo = </span><span style="color:#bf616a;">SubclassOfFoo</span><span>().</span><span style="color:#bf616a;">return_self</span><span>()
+</span><span>
+</span><span>sf: SubclassOfFoo = </span><span style="color:#bf616a;">Foo</span><span>().</span><span style="color:#bf616a;">return_self</span><span>()  </span><span style="color:#65737e;"># expect-type-error
+</span></code></pre>
+<h2 id="fan-xing-generic">泛型（Generic）<a class="zola-anchor" href="#fan-xing-generic" aria-label="Anchor link for: fan-xing-generic">#</a></h2>
+<h3 id="typevar-1">TypeVar<a class="zola-anchor" href="#typevar-1" aria-label="Anchor link for: typevar-1">#</a></h3>
+<p><code>TypeVar</code> 可以用来定义一个类型变量，它可以代表任意类型，并且可以在多个地方重用。</p>
+<p>泛型函数和类可以通过使用 <code>类型形参语法</code> 来实现参数化:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>collections.abc </span><span style="color:#b48ead;">import </span><span>Sequence
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">first</span><span>[</span><span style="color:#8fa1b3;">T</span><span>](</span><span style="color:#bf616a;">l</span><span>: Sequence[T]) -&gt; T:  </span><span style="color:#65737e;"># 函数是 TypeVar &quot;T&quot; 泛型
+</span><span>    </span><span style="color:#b48ead;">return </span><span>l[</span><span style="color:#d08770;">0</span><span>]
+</span></code></pre>
+<p><code>TypeVar</code> 提供 <code>bound</code> 参数可以约束它只能是某种类型的子类。</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>
+</span><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>TypeVar
+</span><span>
+</span><span style="color:#65737e;"># T 必须是 int 或其子类
+</span><span>T = </span><span style="color:#bf616a;">TypeVar</span><span>(&#39;</span><span style="color:#a3be8c;">T</span><span>&#39;, </span><span style="color:#bf616a;">bound</span><span>=int)
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">double</span><span>(</span><span style="color:#bf616a;">x</span><span>: T) -&gt; T:
+</span><span>    </span><span style="color:#b48ead;">return </span><span>x * </span><span style="color:#d08770;">2
+</span></code></pre>
+<h3 id="fan-xing-han-shu-generic-functions">泛型函数（Generic Functions）<a class="zola-anchor" href="#fan-xing-han-shu-generic-functions" aria-label="Anchor link for: fan-xing-han-shu-generic-functions">#</a></h3>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>TypeVar
+</span><span>
+</span><span>T = </span><span style="color:#bf616a;">TypeVar</span><span>(&#39;</span><span style="color:#a3be8c;">T</span><span>&#39;)  </span><span style="color:#65737e;"># 定义一个泛型 T
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">identity</span><span>(</span><span style="color:#bf616a;">x</span><span>: T) -&gt; T:
+</span><span>    </span><span style="color:#b48ead;">return </span><span>x
+</span><span>
+</span><span style="color:#65737e;"># &gt;= 3.12 推荐写法
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">identity</span><span>[</span><span style="color:#8fa1b3;">T</span><span>](</span><span style="color:#bf616a;">x</span><span>: T) -&gt; T:
+</span><span>    </span><span style="color:#b48ead;">return </span><span>x
+</span></code></pre>
+<h3 id="fan-xing-lei">泛型类<a class="zola-anchor" href="#fan-xing-lei" aria-label="Anchor link for: fan-xing-lei">#</a></h3>
+<p>在泛型类中，类的属性和方法可以适应不同的数据类型。通过 Generic 类，我们可以将类
+声明为泛型类。</p>
+<h4 id="fan-xing-lei-ding-yi">泛型类定义<a class="zola-anchor" href="#fan-xing-lei-ding-yi" aria-label="Anchor link for: fan-xing-lei-ding-yi">#</a></h4>
+<p>例如，我们可以定义一个简单的容器类，它能够存储任意类型的数据：</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>logging </span><span style="color:#b48ead;">import </span><span>Logger
+</span><span>
+</span><span style="color:#65737e;"># `T` 是类体内部有效的类型
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">LoggedVar</span><span style="color:#eff1f5;">[</span><span style="color:#ebcb8b;">T</span><span style="color:#eff1f5;">]:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">value</span><span>: T, </span><span style="color:#bf616a;">name</span><span>: str, </span><span style="color:#bf616a;">logger</span><span>: Logger) -&gt; </span><span style="color:#d08770;">None</span><span>:
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.name = name
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.logger = logger
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.value = value
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">set</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">new</span><span>: T) -&gt; </span><span style="color:#d08770;">None</span><span>:
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">log</span><span>(&#39;</span><span style="color:#a3be8c;">Set </span><span>&#39; + </span><span style="color:#96b5b4;">repr</span><span>(</span><span style="color:#bf616a;">self</span><span>.value))
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.value = new
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">get</span><span>(</span><span style="color:#bf616a;">self</span><span>) -&gt; T:
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">log</span><span>(&#39;</span><span style="color:#a3be8c;">Get </span><span>&#39; + </span><span style="color:#96b5b4;">repr</span><span>(</span><span style="color:#bf616a;">self</span><span>.value))
+</span><span>        </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">self</span><span>.value
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">log</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">message</span><span>: str) -&gt; </span><span style="color:#d08770;">None</span><span>:
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.logger.</span><span style="color:#bf616a;">info</span><span>(&#39;</span><span style="color:#d08770;">%s</span><span style="color:#a3be8c;">: </span><span style="color:#d08770;">%s</span><span>&#39;, </span><span style="color:#bf616a;">self</span><span>.name, message)
+</span></code></pre>
+<p>泛型类隐式继承自 <code>Generic</code>。为了与 Python 3.11 及更低版本兼容，也允许显式地从
+<code>Generic</code> 继承以表示泛型类：</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>TypeVar, Generic
+</span><span>
+</span><span>T = </span><span style="color:#bf616a;">TypeVar</span><span>(&#39;</span><span style="color:#a3be8c;">T</span><span>&#39;)
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">LoggedVar</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">Generic</span><span style="color:#eff1f5;">[T]):
+</span><span>    </span><span style="color:#d08770;">...
+</span></code></pre>
+<h3 id="fan-xing-he-ji-cheng">泛型和继承<a class="zola-anchor" href="#fan-xing-he-ji-cheng" aria-label="Anchor link for: fan-xing-he-ji-cheng">#</a></h3>
+<p>在面向对象编程中，泛型类可以与继承结合使用，允许子类继承父类的泛型行为。</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>Generic, TypeVar
+</span><span>
+</span><span>T = </span><span style="color:#bf616a;">TypeVar</span><span>(&#39;</span><span style="color:#a3be8c;">T</span><span>&#39;)
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Animal</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">Generic</span><span style="color:#eff1f5;">[T]):
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">speak</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">sound</span><span>: T) -&gt; </span><span style="color:#d08770;">None</span><span>:
+</span><span>        </span><span style="color:#96b5b4;">print</span><span>(</span><span style="color:#b48ead;">f</span><span>&quot;</span><span style="color:#a3be8c;">The animal says </span><span>{sound}&quot;)
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Dog</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">Animal</span><span style="color:#eff1f5;">[str]):
+</span><span>    </span><span style="color:#b48ead;">pass
+</span><span>
+</span><span>dog = </span><span style="color:#bf616a;">Dog</span><span>()
+</span><span>dog.</span><span style="color:#bf616a;">speak</span><span>(&quot;</span><span style="color:#a3be8c;">woof</span><span>&quot;)  </span><span style="color:#65737e;"># 输出：The animal says woof
+</span></code></pre>
+<p>在这个例子中，<code>Animal</code> 是一个泛型类，<code>Dog</code> 继承了 <code>Animal</code>，并将泛型 <code>T</code> 限定为
+<code>str</code> 类型。</p>
+<h3 id="overload">overload<a class="zola-anchor" href="#overload" aria-label="Anchor link for: overload">#</a></h3>
+<p><code>@overload</code> 装饰器可以用来声明同一函数的多个版本，每个版本有不同的参数类型和返回值
+类型，但在运行时不会实际执行。mypy 会根据参数类型来推断正确的类型签名。</p>
+<p>非 <code>@overload</code> 装饰的定义将在运行时使用但应被类型检查器忽略。在运行时，直接调用以
+<code>@overload</code> 装饰的函数将引发 NotImplementedError。</p>
+<p>challenge:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span style="color:#65737e;">TODO:
+</span><span style="color:#65737e;">`process` is a function that takes one argument `response`
+</span><span style="color:#65737e;">- When `response` is bytes, `process` returns a string
+</span><span style="color:#65737e;">- When `response` is an integer, `process` returns tuple[int, str]
+</span><span style="color:#65737e;">- When `response` is None, `process` returns None
+</span><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>overload
+</span><span>
+</span><span>
+</span><span>@</span><span style="color:#bf616a;">overload
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">process</span><span>(</span><span style="color:#bf616a;">response</span><span>: </span><span style="color:#d08770;">None</span><span>) -&gt; </span><span style="color:#d08770;">None</span><span>:
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span>@</span><span style="color:#bf616a;">overload
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">process</span><span>(</span><span style="color:#bf616a;">response</span><span>: int) -&gt; tuple[int, str]:
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span>@</span><span style="color:#bf616a;">overload
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">process</span><span>(</span><span style="color:#bf616a;">response</span><span>: bytes) -&gt; str:
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">process</span><span>(</span><span style="color:#bf616a;">response</span><span>: int | bytes | </span><span style="color:#d08770;">None</span><span>) -&gt; str | </span><span style="color:#d08770;">None </span><span>| tuple[int, str]:
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#65737e;">## End of your code ##
+</span><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>assert_type
+</span><span>
+</span><span style="color:#bf616a;">assert_type</span><span>(</span><span style="color:#bf616a;">process</span><span>(</span><span style="color:#b48ead;">b</span><span>&quot;</span><span style="color:#a3be8c;">42</span><span>&quot;), str)
+</span><span style="color:#bf616a;">assert_type</span><span>(</span><span style="color:#bf616a;">process</span><span>(</span><span style="color:#d08770;">42</span><span>), tuple[int, str])
+</span><span style="color:#bf616a;">assert_type</span><span>(</span><span style="color:#bf616a;">process</span><span>(</span><span style="color:#d08770;">None</span><span>), </span><span style="color:#d08770;">None</span><span>)
+</span><span>
+</span><span style="color:#bf616a;">assert_type</span><span>(</span><span style="color:#bf616a;">process</span><span>(</span><span style="color:#d08770;">42</span><span>), str)  </span><span style="color:#65737e;"># expect-type-error
+</span><span style="color:#bf616a;">assert_type</span><span>(</span><span style="color:#bf616a;">process</span><span>(</span><span style="color:#d08770;">None</span><span>), str)  </span><span style="color:#65737e;"># expect-type-error
+</span><span style="color:#bf616a;">assert_type</span><span>(</span><span style="color:#bf616a;">process</span><span>(</span><span style="color:#b48ead;">b</span><span>&quot;</span><span style="color:#a3be8c;">42</span><span>&quot;), tuple[int, str])  </span><span style="color:#65737e;"># expect-type-error
+</span><span style="color:#bf616a;">assert_type</span><span>(</span><span style="color:#bf616a;">process</span><span>(</span><span style="color:#d08770;">None</span><span>), tuple[int, str])  </span><span style="color:#65737e;"># expect-type-error
+</span><span style="color:#bf616a;">assert_type</span><span>(</span><span style="color:#bf616a;">process</span><span>(</span><span style="color:#d08770;">42</span><span>), str)  </span><span style="color:#65737e;"># expect-type-error
+</span><span style="color:#bf616a;">assert_type</span><span>(</span><span style="color:#bf616a;">process</span><span>(</span><span style="color:#d08770;">None</span><span>), str)  </span><span style="color:#65737e;"># expect-type-error
+</span></code></pre>
+<h3 id="protocol">Protocol<a class="zola-anchor" href="#protocol" aria-label="Anchor link for: protocol">#</a></h3>
+<p>用于定义“结构化子类型”（structural subtyping），也称为“鸭子类型”。<code>Protocol</code>  允
+许我们通过“接口”来定义一个类型，而不强制要求对象必须显式继承这些接口。只要一个对
+象实现了所需的方法或属性，它就可以被认为符合某个 <code>Protocol</code>。</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span style="color:#65737e;">TODO:
+</span><span style="color:#65737e;">    Define a protocol for class `SupportsQuack` that supports a &quot;quack&quot; method.
+</span><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span>
+</span><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>Protocol
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SupportsQuack</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">Protocol</span><span style="color:#eff1f5;">):
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">quack</span><span>(</span><span style="color:#bf616a;">self</span><span>) -&gt; </span><span style="color:#d08770;">None</span><span>:
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#65737e;">## End of your code ##
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Duck</span><span style="color:#eff1f5;">:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">quack</span><span>(</span><span style="color:#bf616a;">self</span><span>) -&gt; </span><span style="color:#d08770;">None</span><span>:
+</span><span>        </span><span style="color:#96b5b4;">print</span><span>(&quot;</span><span style="color:#a3be8c;">quack!</span><span>&quot;)
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Dog</span><span style="color:#eff1f5;">:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">bark</span><span>(</span><span style="color:#bf616a;">self</span><span>) -&gt; </span><span style="color:#d08770;">None</span><span>:
+</span><span>        </span><span style="color:#96b5b4;">print</span><span>(&quot;</span><span style="color:#a3be8c;">bark!</span><span>&quot;)
+</span><span>
+</span><span>
+</span><span>duck: SupportsQuack = </span><span style="color:#bf616a;">Duck</span><span>()
+</span><span>dog: SupportsQuack = </span><span style="color:#bf616a;">Dog</span><span>()  </span><span style="color:#65737e;"># expect-type-error
+</span></code></pre>
+<h3 id="callable-protocol">callable-protocol<a class="zola-anchor" href="#callable-protocol" aria-label="Anchor link for: callable-protocol">#</a></h3>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span style="color:#65737e;">TODO:
+</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">Define a callable type that accepts a string parameter called `name` and returns None.
+</span><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>Protocol
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SingleStringInput</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">Protocol</span><span style="color:#eff1f5;">):
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__call__</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">name</span><span>: str) -&gt; </span><span style="color:#d08770;">None</span><span>:
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#65737e;">## End of your code ##
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">accept_single_string_input</span><span>(</span><span style="color:#bf616a;">func</span><span>: SingleStringInput) -&gt; </span><span style="color:#d08770;">None</span><span>:
+</span><span>    </span><span style="color:#bf616a;">func</span><span>(</span><span style="color:#bf616a;">name</span><span>=&quot;</span><span style="color:#a3be8c;">name</span><span>&quot;)
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">string_name</span><span>(</span><span style="color:#bf616a;">name</span><span>: str) -&gt; </span><span style="color:#d08770;">None</span><span>:
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">string_value</span><span>(</span><span style="color:#bf616a;">value</span><span>: str) -&gt; </span><span style="color:#d08770;">None</span><span>:
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">return_string</span><span>(</span><span style="color:#bf616a;">name</span><span>: str) -&gt; str:
+</span><span>    </span><span style="color:#b48ead;">return </span><span>name
+</span><span>
+</span><span>
+</span><span style="color:#bf616a;">accept_single_string_input</span><span>(string_name)
+</span><span style="color:#bf616a;">accept_single_string_input</span><span>(string_value)  </span><span style="color:#65737e;"># expect-type-error
+</span><span style="color:#bf616a;">accept_single_string_input</span><span>(return_string)  </span><span style="color:#65737e;"># expect-type-error
+</span></code></pre>
+<h2 id="typeddict">TypedDict<a class="zola-anchor" href="#typeddict" aria-label="Anchor link for: typeddict">#</a></h2>
+<p>TypedDict 声明一个字典类型，字典定义一个具有特定键和值类型的字典结构，可以像定义
+类一样定义字典的键和值的类型，确保字典的键和值符合预期。 可以使用 NotRequired 将
+单独的键标记为非必要。</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span style="color:#65737e;">TODO:
+</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">Define a class `Student` that represents a dictionary with three keys:
+</span><span style="color:#65737e;">- name, a string
+</span><span style="color:#65737e;">- age, an integer
+</span><span style="color:#65737e;">- school, a string
+</span><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>TypedDict
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Student</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">TypedDict</span><span style="color:#eff1f5;">):
+</span><span>    name: str
+</span><span>    age: int
+</span><span>    school: str
+</span><span>
+</span><span>a: Student = {&quot;</span><span style="color:#a3be8c;">name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Tom</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">age</span><span>&quot;: </span><span style="color:#d08770;">15</span><span>, &quot;</span><span style="color:#a3be8c;">school</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Hogwarts</span><span>&quot;}
+</span><span>a: Student = {&quot;</span><span style="color:#a3be8c;">name</span><span>&quot;: </span><span style="color:#d08770;">1</span><span>, &quot;</span><span style="color:#a3be8c;">age</span><span>&quot;: </span><span style="color:#d08770;">15</span><span>, &quot;</span><span style="color:#a3be8c;">school</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Hogwarts</span><span>&quot;}  </span><span style="color:#65737e;"># expect-type-error
+</span><span>a: Student = {(</span><span style="color:#d08770;">1</span><span>,): &quot;</span><span style="color:#a3be8c;">Tom</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">age</span><span>&quot;: </span><span style="color:#d08770;">2</span><span>, &quot;</span><span style="color:#a3be8c;">school</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Hogwarts</span><span>&quot;}  </span><span style="color:#65737e;"># expect-type-error
+</span><span>a: Student = {&quot;</span><span style="color:#a3be8c;">name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Tom</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">age</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">2</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">school</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Hogwarts</span><span>&quot;}  </span><span style="color:#65737e;"># expect-type-error
+</span><span>a: Student = {&quot;</span><span style="color:#a3be8c;">name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Tom</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">age</span><span>&quot;: </span><span style="color:#d08770;">2</span><span>}  </span><span style="color:#65737e;"># expect-type-error
+</span><span style="color:#b48ead;">assert </span><span style="color:#bf616a;">Student</span><span>(</span><span style="color:#bf616a;">name</span><span>=&quot;</span><span style="color:#a3be8c;">Tom</span><span>&quot;, </span><span style="color:#bf616a;">age</span><span>=</span><span style="color:#d08770;">15</span><span>, </span><span style="color:#bf616a;">school</span><span>=&quot;</span><span style="color:#a3be8c;">Hogwarts</span><span>&quot;) == </span><span style="color:#bf616a;">dict</span><span>(
+</span><span>    </span><span style="color:#bf616a;">name</span><span>=&quot;</span><span style="color:#a3be8c;">Tom</span><span>&quot;, </span><span style="color:#bf616a;">age</span><span>=</span><span style="color:#d08770;">15</span><span>, </span><span style="color:#bf616a;">school</span><span>=&quot;</span><span style="color:#a3be8c;">Hogwarts</span><span>&quot;
+</span><span>)
+</span></code></pre>
+<p>默认情况下，所有的键都必须出现在一个 TypedDict 中。可以使用 NotRequired 将单独
+的键标记为非必要</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span style="color:#65737e;">TODO:
+</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">Define a class `Student` that represents a dictionary with three keys:
+</span><span style="color:#65737e;">- name, a string
+</span><span style="color:#65737e;">- age, an integer
+</span><span style="color:#65737e;">- school, a string
+</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">Note: school can be optional
+</span><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span>
+</span><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>TypedDict, NotRequired
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Student</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">TypedDict</span><span style="color:#eff1f5;">):
+</span><span>    name: str
+</span><span>    age: int
+</span><span>    school: NotRequired[str]
+</span><span>
+</span><span>a: Student = {&quot;</span><span style="color:#a3be8c;">name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Tom</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">age</span><span>&quot;: </span><span style="color:#d08770;">15</span><span>}
+</span><span>a: Student = {&quot;</span><span style="color:#a3be8c;">name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Tom</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">age</span><span>&quot;: </span><span style="color:#d08770;">15</span><span>, &quot;</span><span style="color:#a3be8c;">school</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Hogwarts</span><span>&quot;}
+</span><span>a: Student = {&quot;</span><span style="color:#a3be8c;">name</span><span>&quot;: </span><span style="color:#d08770;">1</span><span>, &quot;</span><span style="color:#a3be8c;">age</span><span>&quot;: </span><span style="color:#d08770;">15</span><span>, &quot;</span><span style="color:#a3be8c;">school</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Hogwarts</span><span>&quot;}  </span><span style="color:#65737e;"># expect-type-error
+</span><span>a: Student = {(</span><span style="color:#d08770;">1</span><span>,): &quot;</span><span style="color:#a3be8c;">Tom</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">age</span><span>&quot;: </span><span style="color:#d08770;">2</span><span>, &quot;</span><span style="color:#a3be8c;">school</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Hogwarts</span><span>&quot;}  </span><span style="color:#65737e;"># expect-type-error
+</span><span>a: Student = {&quot;</span><span style="color:#a3be8c;">name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Tom</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">age</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">2</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">school</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Hogwarts</span><span>&quot;}  </span><span style="color:#65737e;"># expect-type-error
+</span><span>a: Student = {&quot;</span><span style="color:#a3be8c;">z</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Tom</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">age</span><span>&quot;: </span><span style="color:#d08770;">2</span><span>}  </span><span style="color:#65737e;"># expect-type-error
+</span><span style="color:#b48ead;">assert </span><span style="color:#bf616a;">Student</span><span>(</span><span style="color:#bf616a;">name</span><span>=&quot;</span><span style="color:#a3be8c;">Tom</span><span>&quot;, </span><span style="color:#bf616a;">age</span><span>=</span><span style="color:#d08770;">15</span><span>) == </span><span style="color:#bf616a;">dict</span><span>(</span><span style="color:#bf616a;">name</span><span>=&quot;</span><span style="color:#a3be8c;">Tom</span><span>&quot;, </span><span style="color:#bf616a;">age</span><span>=</span><span style="color:#d08770;">15</span><span>)
+</span><span style="color:#b48ead;">assert </span><span style="color:#bf616a;">Student</span><span>(</span><span style="color:#bf616a;">name</span><span>=&quot;</span><span style="color:#a3be8c;">Tom</span><span>&quot;, </span><span style="color:#bf616a;">age</span><span>=</span><span style="color:#d08770;">15</span><span>, </span><span style="color:#bf616a;">school</span><span>=&quot;</span><span style="color:#a3be8c;">Hogwarts</span><span>&quot;) == </span><span style="color:#bf616a;">dict</span><span>(
+</span><span>    </span><span style="color:#bf616a;">name</span><span>=&quot;</span><span style="color:#a3be8c;">Tom</span><span>&quot;, </span><span style="color:#bf616a;">age</span><span>=</span><span style="color:#d08770;">15</span><span>, </span><span style="color:#bf616a;">school</span><span>=&quot;</span><span style="color:#a3be8c;">Hogwarts</span><span>&quot;
+</span><span>)
+</span><span>
+</span></code></pre>
+<p>使用 total=False 时，TypedDict 中单独的键可以使用 Required 标记为必要的</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span style="color:#65737e;">TODO:
+</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">Define a class `Person` that represents a dictionary with five string keys:
+</span><span style="color:#65737e;">    name, age, gender, address, email
+</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">The value of each key must be the specified type:
+</span><span style="color:#65737e;">    name - str, age - int, gender - str, address - str, email - str
+</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">Note: Only `name` is required
+</span><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span>
+</span><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>TypedDict, Required
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Person</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">TypedDict</span><span style="color:#eff1f5;">, </span><span style="color:#bf616a;">total</span><span>=</span><span style="color:#a3be8c;">False</span><span style="color:#eff1f5;">):
+</span><span>    name: Required[str]
+</span><span>    age: int
+</span><span>    gender: str
+</span><span>    address: str
+</span><span>    email: str
+</span><span>
+</span><span>
+</span><span style="color:#65737e;"># Alternative soltion:
+</span><span style="color:#65737e;">#
+</span><span style="color:#65737e;"># Person = TypedDict(&#39;Person&#39;, {
+</span><span style="color:#65737e;">#     name: Required[str],
+</span><span style="color:#65737e;">#     age: int,
+</span><span style="color:#65737e;">#     gender: str,
+</span><span style="color:#65737e;">#     address: str,
+</span><span style="color:#65737e;">#     email: str,
+</span><span style="color:#65737e;"># }, total=False):
+</span><span>
+</span><span style="color:#65737e;">## End of your code ##
+</span><span>a: Person = {
+</span><span>    &quot;</span><span style="color:#a3be8c;">name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Capy</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">age</span><span>&quot;: </span><span style="color:#d08770;">1</span><span>,
+</span><span>    &quot;</span><span style="color:#a3be8c;">gender</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Male</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">address</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">earth</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">email</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">capy@bara.com</span><span>&quot;,
+</span><span>}
+</span><span>a: Person = {&quot;</span><span style="color:#a3be8c;">name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Capy</span><span>&quot;}
+</span><span>a: Person = {&quot;</span><span style="color:#a3be8c;">age</span><span>&quot;: </span><span style="color:#d08770;">1</span><span>, &quot;</span><span style="color:#a3be8c;">gender</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Male</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">address</span><span>&quot;: &quot;&quot;, &quot;</span><span style="color:#a3be8c;">email</span><span>&quot;: &quot;&quot;} </span><span style="color:#65737e;"># expect-type-error
+</span></code></pre>
+<h2 id="qi-ta">其他<a class="zola-anchor" href="#qi-ta" aria-label="Anchor link for: qi-ta">#</a></h2>
+<h3 id="literal">Literal<a class="zola-anchor" href="#literal" aria-label="Anchor link for: literal">#</a></h3>
+<p>特殊类型注解形式，用于定义“字面值类型”。</p>
+<p>Literal 可以用来向类型检查器说明被注解的对象具有与所提供的字面量之一相同的值。</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">validate_simple</span><span>(</span><span style="color:#bf616a;">data</span><span>: Any) -&gt; Literal[</span><span style="color:#d08770;">True</span><span>]:  </span><span style="color:#65737e;"># 总是返回 True
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span style="color:#96b5b4;">type </span><span>Mode = Literal[&#39;</span><span style="color:#a3be8c;">r</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">rb</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">w</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">wb</span><span>&#39;]
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">open_helper</span><span>(</span><span style="color:#bf616a;">file</span><span>: str, </span><span style="color:#bf616a;">mode</span><span>: Mode) -&gt; str:
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span style="color:#bf616a;">open_helper</span><span>(&#39;</span><span style="color:#a3be8c;">/some/path</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">r</span><span>&#39;)      </span><span style="color:#65737e;"># 通过类型检查
+</span><span style="color:#bf616a;">open_helper</span><span>(&#39;</span><span style="color:#a3be8c;">/other/path</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">typo</span><span>&#39;)  </span><span style="color:#65737e;"># 类型检查错误
+</span></code></pre>
+<h3 id="literalstring">LiteralString<a class="zola-anchor" href="#literalstring" aria-label="Anchor link for: literalstring">#</a></h3>
+<p>只包括字符串字面值的的特殊类型。</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">run_query</span><span>(</span><span style="color:#bf616a;">sql</span><span>: LiteralString) -&gt; </span><span style="color:#d08770;">None</span><span>:
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">caller</span><span>(</span><span style="color:#bf616a;">arbitrary_string</span><span>: str, </span><span style="color:#bf616a;">literal_string</span><span>: LiteralString) -&gt; </span><span style="color:#d08770;">None</span><span>:
+</span><span>    </span><span style="color:#bf616a;">run_query</span><span>(&quot;</span><span style="color:#b48ead;">SELECT </span><span style="color:#bf616a;">* </span><span style="color:#b48ead;">FROM</span><span style="color:#a3be8c;"> students</span><span>&quot;)  </span><span style="color:#65737e;"># 可以
+</span><span>    </span><span style="color:#bf616a;">run_query</span><span>(literal_string)  </span><span style="color:#65737e;"># 可以
+</span><span>    </span><span style="color:#bf616a;">run_query</span><span>(&quot;</span><span style="color:#b48ead;">SELECT </span><span style="color:#bf616a;">* </span><span style="color:#b48ead;">FROM </span><span>&quot; + literal_string)  </span><span style="color:#65737e;"># 可以
+</span><span>    </span><span style="color:#bf616a;">run_query</span><span>(arbitrary_string)  </span><span style="color:#65737e;"># 类型检查器错误
+</span><span>    </span><span style="color:#bf616a;">run_query</span><span>(  </span><span style="color:#65737e;"># 类型检查器错误
+</span><span>        </span><span style="color:#b48ead;">f</span><span>&quot;</span><span style="color:#a3be8c;">SELECT * FROM students WHERE name = </span><span>{arbitrary_string}&quot;
+</span><span>    )
+</span></code></pre>
+<p>LiteralString 对于会因用户可输入任意字符串而导致问题的敏感 API 很有用。例如，上
+述两处导致类型检查器报错的代码可能容易被 SQL 注入攻击。</p>
+<h3 id="zhuang-shi-qi-decorator">装饰器（decorator）<a class="zola-anchor" href="#zhuang-shi-qi-decorator" aria-label="Anchor link for: zhuang-shi-qi-decorator">#</a></h3>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span style="color:#65737e;">TODO:
+</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">定义一个装饰器，它包装一个函数并返回一个具有相同签名的函数。
+</span><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>Callable, TypeVar
+</span><span>
+</span><span style="color:#65737e;"># For Python &lt; 3.12
+</span><span style="color:#65737e;">#
+</span><span style="color:#65737e;"># T = TypeVar(&quot;T&quot;, bound=Callable)
+</span><span style="color:#65737e;">#
+</span><span style="color:#65737e;"># def decorator(func: T) -&gt; T:
+</span><span style="color:#65737e;">#     return func
+</span><span>
+</span><span>
+</span><span style="color:#65737e;"># For Python &gt;= 3.12
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">decorator</span><span>[</span><span style="color:#8fa1b3;">T</span><span>: Callable</span><span style="background-color:#bf616a;color:#2b303b;">]</span><span>(func: T) -&gt; T:
+</span><span>    </span><span style="color:#b48ead;">return </span><span>func
+</span><span>
+</span><span>
+</span><span style="color:#65737e;">## End of your code ##
+</span><span>@</span><span style="color:#bf616a;">decorator
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">foo</span><span>(</span><span style="color:#bf616a;">a</span><span>: int, *, </span><span style="color:#bf616a;">b</span><span>: str) -&gt; </span><span style="color:#d08770;">None</span><span>:
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span>@</span><span style="color:#bf616a;">decorator
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">bar</span><span>(</span><span style="color:#bf616a;">c</span><span>: int, </span><span style="color:#bf616a;">d</span><span>: str) -&gt; </span><span style="color:#d08770;">None</span><span>:
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#bf616a;">foo</span><span>(</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#bf616a;">b</span><span>=&quot;</span><span style="color:#a3be8c;">2</span><span>&quot;)
+</span><span style="color:#bf616a;">bar</span><span>(</span><span style="color:#bf616a;">c</span><span>=</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#bf616a;">d</span><span>=&quot;</span><span style="color:#a3be8c;">2</span><span>&quot;)
+</span><span>
+</span><span style="color:#bf616a;">foo</span><span>(</span><span style="color:#d08770;">1</span><span>, &quot;</span><span style="color:#a3be8c;">2</span><span>&quot;)  </span><span style="color:#65737e;"># expect-type-error
+</span><span style="color:#bf616a;">foo</span><span>(</span><span style="color:#bf616a;">a</span><span>=</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#bf616a;">e</span><span>=&quot;</span><span style="color:#a3be8c;">2</span><span>&quot;)  </span><span style="color:#65737e;"># expect-type-error
+</span><span style="color:#bf616a;">decorator</span><span>(</span><span style="color:#d08770;">1</span><span>)  </span><span style="color:#65737e;"># expect-type-error
+</span></code></pre>
+<ul>
+<li>TODO:</li>
+</ul>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span style="color:#65737e;">TODO:
+</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">定义一个装饰器，它包装一个函数并返回一个具有相同签名的函数。
+</span><span style="color:#65737e;">这个装饰器接受一个名为 `message` 的字符串类型参数。
+</span><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span style="color:#b48ead;">from </span><span>collections.abc </span><span style="color:#b48ead;">import </span><span>Callable
+</span><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>TypeVar
+</span><span>
+</span><span style="color:#65737e;"># For Python &lt; 3.12
+</span><span style="color:#65737e;">#
+</span><span style="color:#65737e;"># T = TypeVar(&quot;T&quot;, bound=Callable)
+</span><span style="color:#65737e;">#
+</span><span style="color:#65737e;"># def decorator(message: str) -&gt; Callable[[T], T]:
+</span><span style="color:#65737e;">#     return func
+</span><span>
+</span><span>
+</span><span style="color:#65737e;"># For Python &gt;= 3.12
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">decorator</span><span>[</span><span style="color:#8fa1b3;">T</span><span>: Callable</span><span style="background-color:#bf616a;color:#2b303b;">]</span><span>(message: str) -&gt; Callable[[T], T]:
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#65737e;">## End of your code ##
+</span><span>@</span><span style="color:#bf616a;">decorator</span><span>(</span><span style="color:#bf616a;">message</span><span>=&quot;</span><span style="color:#a3be8c;">x</span><span>&quot;)
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">foo</span><span>(</span><span style="color:#bf616a;">a</span><span>: int, *, </span><span style="color:#bf616a;">b</span><span>: str) -&gt; </span><span style="color:#d08770;">None</span><span>:
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span>@</span><span style="color:#bf616a;">decorator  </span><span style="color:#65737e;"># expect-type-error
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">bar</span><span>(</span><span style="color:#bf616a;">a</span><span>: int, *, </span><span style="color:#bf616a;">b</span><span>: str) -&gt; </span><span style="color:#d08770;">None</span><span>:
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#bf616a;">foo</span><span>(</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#bf616a;">b</span><span>=&quot;</span><span style="color:#a3be8c;">2</span><span>&quot;)
+</span><span style="color:#bf616a;">foo</span><span>(</span><span style="color:#d08770;">1</span><span>, &quot;</span><span style="color:#a3be8c;">2</span><span>&quot;)  </span><span style="color:#65737e;"># expect-type-error
+</span><span style="color:#bf616a;">foo</span><span>(</span><span style="color:#bf616a;">a</span><span>=</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#bf616a;">e</span><span>=&quot;</span><span style="color:#a3be8c;">2</span><span>&quot;)  </span><span style="color:#65737e;"># expect-type-error
+</span><span style="color:#bf616a;">decorator</span><span>(</span><span style="color:#d08770;">1</span><span>)  </span><span style="color:#65737e;"># expect-type-error
+</span></code></pre>
+<h3 id="miao-shu-qi-descriptor">描述器（descriptor）<a class="zola-anchor" href="#miao-shu-qi-descriptor" aria-label="Anchor link for: miao-shu-qi-descriptor">#</a></h3>
+<p><code>Self</code> 是一个特殊类型，表示当前闭包内的类。</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>Self, reveal_type
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Foo</span><span style="color:#eff1f5;">:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">return_self</span><span>(</span><span style="color:#bf616a;">self</span><span>) -&gt; Self:
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>        </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">self
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SubclassOfFoo</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">Foo</span><span style="color:#eff1f5;">): </span><span style="color:#b48ead;">pass
+</span><span>
+</span><span style="color:#bf616a;">reveal_type</span><span>(</span><span style="color:#bf616a;">Foo</span><span>().</span><span style="color:#bf616a;">return_self</span><span>())  </span><span style="color:#65737e;"># 揭示的类型为 &quot;Foo&quot;
+</span><span style="color:#bf616a;">reveal_type</span><span>(</span><span style="color:#bf616a;">SubclassOfFoo</span><span>().</span><span style="color:#bf616a;">return_self</span><span>())  </span><span style="color:#65737e;"># 揭示的类型为 &quot;SubclassOfFoo&quot;
+</span></code></pre>
+<p>此注解在语法上等价于以下代码，但形式更为简洁：</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>TypeVar
+</span><span>
+</span><span>Self = </span><span style="color:#bf616a;">TypeVar</span><span>(&quot;</span><span style="color:#a3be8c;">Self</span><span>&quot;, </span><span style="color:#bf616a;">bound</span><span>=&quot;</span><span style="color:#a3be8c;">Foo</span><span>&quot;)
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Foo</span><span style="color:#eff1f5;">:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">return_self</span><span>(</span><span style="color:#bf616a;">self</span><span>: Self) -&gt; Self:
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>        </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">self
+</span></code></pre>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span style="color:#65737e;">TODO:
+</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">Create a descriptor and annotate the __get__ method.
+</span><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span>
+</span><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>Any, Self, overload
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Descriptor</span><span style="color:#eff1f5;">:
+</span><span>    </span><span style="color:#65737e;"># 如果 instance 是 None,表示是通过类访问的，返回描述符自身 (self)
+</span><span>    @</span><span style="color:#bf616a;">overload
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__get__</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">instance</span><span>: </span><span style="color:#d08770;">None</span><span>, </span><span style="color:#bf616a;">owner</span><span>: </span><span style="color:#96b5b4;">type</span><span>) -&gt; Self:
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>
+</span><span>    </span><span style="color:#65737e;"># 通过实例访问的，返回一个字符串 &quot;描述符值&quot;
+</span><span>    @</span><span style="color:#bf616a;">overload
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__get__</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">instance</span><span>: Any, </span><span style="color:#bf616a;">owner</span><span>: </span><span style="color:#96b5b4;">type</span><span>) -&gt; str:
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__get__</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">instance</span><span>: Any, </span><span style="color:#bf616a;">owner</span><span>: </span><span style="color:#96b5b4;">type</span><span>) -&gt; Self | str:
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#65737e;">## End of your code ##
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">TestClass</span><span style="color:#eff1f5;">:
+</span><span>    a = </span><span style="color:#bf616a;">Descriptor</span><span>()
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">descriptor_self</span><span>(</span><span style="color:#bf616a;">x</span><span>: Descriptor) -&gt; </span><span style="color:#d08770;">None</span><span>:
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">string_value</span><span>(</span><span style="color:#bf616a;">x</span><span>: str) -&gt; </span><span style="color:#d08770;">None</span><span>:
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#bf616a;">descriptor_self</span><span>(TestClass.a)
+</span><span style="color:#bf616a;">string_value</span><span>(</span><span style="color:#bf616a;">TestClass</span><span>().a)
+</span><span style="color:#bf616a;">descriptor_self</span><span>(</span><span style="color:#bf616a;">TestClass</span><span>().a)  </span><span style="color:#65737e;"># expect-type-error
+</span><span style="color:#bf616a;">string_value</span><span>(TestClass.a)  </span><span style="color:#65737e;"># expect-type-error
+</span></code></pre>
+<h3 id="sheng-cheng-qi-generator">生成器（generator）<a class="zola-anchor" href="#sheng-cheng-qi-generator" aria-label="Anchor link for: sheng-cheng-qi-generator">#</a></h3>
+<p>生成器可以使用泛型类型 <code>Generator[YieldType, SendType, ReturnType]</code> 来标。 例如:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">echo_round</span><span>() -&gt; Generator[int, float, str]:
+</span><span>    sent = </span><span style="color:#b48ead;">yield </span><span style="color:#d08770;">0
+</span><span>    </span><span style="color:#b48ead;">while </span><span>sent &gt;= </span><span style="color:#d08770;">0</span><span>:
+</span><span>        sent = </span><span style="color:#b48ead;">yield </span><span style="color:#96b5b4;">round</span><span>(sent)
+</span><span>    </span><span style="color:#b48ead;">return </span><span>&#39;</span><span style="color:#a3be8c;">Done</span><span>&#39;
+</span></code></pre>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span style="color:#65737e;">TODO:
+</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">`gen` is a generator that yields a integer, and can accept a string sent to it.
+</span><span style="color:#65737e;">It does not return anything.
+</span><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span>
+</span><span style="color:#b48ead;">from </span><span>collections.abc </span><span style="color:#b48ead;">import </span><span>Generator
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">gen</span><span>() -&gt; Generator[int, str, </span><span style="color:#d08770;">None</span><span>]:
+</span><span>    </span><span style="color:#65737e;">&quot;&quot;&quot;You don&#39;t need to implement it&quot;&quot;&quot;
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#65737e;">## End of your code ##
+</span><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>assert_type
+</span><span>
+</span><span>generator = </span><span style="color:#bf616a;">gen</span><span>()
+</span><span style="color:#bf616a;">assert_type</span><span>(</span><span style="color:#96b5b4;">next</span><span>(generator), int)
+</span><span>generator.</span><span style="color:#bf616a;">send</span><span>(&quot;</span><span style="color:#a3be8c;">sss</span><span>&quot;)
+</span><span>generator.</span><span style="color:#bf616a;">send</span><span>(</span><span style="color:#d08770;">3</span><span>)  </span><span style="color:#65737e;"># expect-type-error
+</span></code></pre>
+<h3 id="never">never<a class="zola-anchor" href="#never" aria-label="Anchor link for: never">#</a></h3>
+<p>Never 和 NoReturn 代表 底类型(Bottom Type)，一种没有成员的类型。
+它们可被用于指明一个函数绝不会返回，例如 sys.exit():</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>Never  </span><span style="color:#65737e;"># 或 NoReturn
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">stop</span><span>() -&gt; Never:
+</span><span>    </span><span style="color:#b48ead;">raise </span><span style="color:#bf616a;">RuntimeError</span><span>(&#39;</span><span style="color:#a3be8c;">no way</span><span>&#39;)
+</span></code></pre>
+<p>或者用于定义一个绝不应被调用的函数，因为不存在有效的参数，例如 assert_never():</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>Never  </span><span style="color:#65737e;"># 或 NoReturn
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">never_call_me</span><span>(</span><span style="color:#bf616a;">arg</span><span>: Never) -&gt; </span><span style="color:#d08770;">None</span><span>:
+</span><span>    </span><span style="color:#b48ead;">pass
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">int_or_str</span><span>(</span><span style="color:#bf616a;">arg</span><span>: int | str) -&gt; </span><span style="color:#d08770;">None</span><span>:
+</span><span>    </span><span style="color:#bf616a;">never_call_me</span><span>(arg)  </span><span style="color:#65737e;"># 类型检查器错误
+</span><span>    match arg:
+</span><span>        case </span><span style="color:#bf616a;">int</span><span>():
+</span><span>            </span><span style="color:#96b5b4;">print</span><span>(&quot;</span><span style="color:#a3be8c;">It&#39;s an int</span><span>&quot;)
+</span><span>        case </span><span style="color:#bf616a;">str</span><span>():
+</span><span>            </span><span style="color:#96b5b4;">print</span><span>(&quot;</span><span style="color:#a3be8c;">It&#39;s a str</span><span>&quot;)
+</span><span>        case </span><span style="color:#bf616a;">_</span><span>:
+</span><span>            </span><span style="color:#bf616a;">never_call_me</span><span>(arg)  </span><span style="color:#65737e;"># OK, arg is of type Never (or NoReturn)
+</span></code></pre>
+<p>Never 和 NoReturn 在类型系统中具有相同的含义并且静态类型检查器会以相同的方式对待这两者。</p>
+<h3 id="buffer">buffer<a class="zola-anchor" href="#buffer" aria-label="Anchor link for: buffer">#</a></h3>
+<ul>
+<li>https://docs.python.org/zh-cn/3/c-api/buffer.html#bufferobjects</li>
+</ul>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span style="color:#65737e;">TODO:
+</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">Annotate the function `read_buffer`, which accepts anything that is a buffer.
+</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">See https://docs.python.org/3.12/reference/datamodel.html#object.__buffer__
+</span><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span>
+</span><span style="color:#b48ead;">from </span><span>collections.abc </span><span style="color:#b48ead;">import </span><span>Buffer
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">read_buffer</span><span>(</span><span style="color:#bf616a;">b</span><span>: Buffer):
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#65737e;">## End of your code ##
+</span><span>
+</span><span style="color:#b48ead;">from </span><span>array </span><span style="color:#b48ead;">import </span><span>array
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">MyBuffer</span><span style="color:#eff1f5;">:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>: bytes):
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.data = </span><span style="color:#bf616a;">bytearray</span><span>(data)
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.view = </span><span style="color:#d08770;">None
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">__buffer__</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">flags</span><span>: int) -&gt; memoryview:
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.view = </span><span style="color:#bf616a;">memoryview</span><span>(</span><span style="color:#bf616a;">self</span><span>.data)
+</span><span>        </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">self</span><span>.view
+</span><span>
+</span><span>
+</span><span style="color:#bf616a;">read_buffer</span><span>(</span><span style="color:#b48ead;">b</span><span>&quot;</span><span style="color:#a3be8c;">foo</span><span>&quot;)
+</span><span style="color:#bf616a;">read_buffer</span><span>(</span><span style="color:#bf616a;">memoryview</span><span>(</span><span style="color:#b48ead;">b</span><span>&quot;</span><span style="color:#a3be8c;">foo</span><span>&quot;))
+</span><span style="color:#bf616a;">read_buffer</span><span>(</span><span style="color:#bf616a;">array</span><span>(&quot;</span><span style="color:#a3be8c;">l</span><span>&quot;, [</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>, </span><span style="color:#d08770;">3</span><span>, </span><span style="color:#d08770;">4</span><span>, </span><span style="color:#d08770;">5</span><span>]))
+</span><span style="color:#bf616a;">read_buffer</span><span>(</span><span style="color:#bf616a;">MyBuffer</span><span>(</span><span style="color:#b48ead;">b</span><span>&quot;</span><span style="color:#a3be8c;">foo</span><span>&quot;))
+</span><span style="color:#bf616a;">read_buffer</span><span>(&quot;</span><span style="color:#a3be8c;">foo</span><span>&quot;)  </span><span style="color:#65737e;"># expect-type-error
+</span><span style="color:#bf616a;">read_buffer</span><span>(</span><span style="color:#d08770;">1</span><span>)  </span><span style="color:#65737e;"># expect-type-error
+</span><span style="color:#bf616a;">read_buffer</span><span>([&quot;</span><span style="color:#a3be8c;">foo</span><span>&quot;])  </span><span style="color:#65737e;"># expect-type-error
+</span></code></pre>
+<h2 id="todo-xie-bian-ni-bian-bu-bian-covariant-contravariant-invariant">TODO: 协变，逆变，不变(covariant, contravariant, invariant)<a class="zola-anchor" href="#todo-xie-bian-ni-bian-bu-bian-covariant-contravariant-invariant" aria-label="Anchor link for: todo-xie-bian-ni-bian-bu-bian-covariant-contravariant-invariant">#</a></h2>
+<h2 id="pai-cha-gong-ju">排查工具<a class="zola-anchor" href="#pai-cha-gong-ju" aria-label="Anchor link for: pai-cha-gong-ju">#</a></h2>
+<h3 id="shi-yong-reveal-type-cha-kan-tui-duan-lei-xing">使用 <code>reveal_type</code> 查看推断类型<a class="zola-anchor" href="#shi-yong-reveal-type-cha-kan-tui-duan-lei-xing" aria-label="Anchor link for: shi-yong-reveal-type-cha-kan-tui-duan-lei-xing">#</a></h3>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>a = [</span><span style="color:#d08770;">4</span><span>]
+</span><span style="color:#bf616a;">reveal_type</span><span>(a)         </span><span style="color:#65737e;"># -&gt; error: Revealed type is &#39;builtins.list[builtins.int*]&#39;
+</span></code></pre>
+<h3 id="shi-yong-cast-lai-qiang-zhi-zhi-ding-lei-xing">使用 <code>cast</code> 来强制指定类型：<a class="zola-anchor" href="#shi-yong-cast-lai-qiang-zhi-zhi-ding-lei-xing" aria-label="Anchor link for: shi-yong-cast-lai-qiang-zhi-zhi-ding-lei-xing">#</a></h3>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>typing </span><span style="color:#b48ead;">import </span><span>List, cast
+</span><span>a = [</span><span style="color:#d08770;">4</span><span>]
+</span><span>b = </span><span style="color:#bf616a;">cast</span><span>(List[int], a) </span><span style="color:#65737e;"># passes fine
+</span><span>c = </span><span style="color:#bf616a;">cast</span><span>(List[str], a) </span><span style="color:#65737e;"># type: List[str] # passes fine (no runtime check)
+</span><span style="color:#bf616a;">reveal_type</span><span>(c)         </span><span style="color:#65737e;"># -&gt; error: Revealed type is &#39;builtins.list[builtins.str]&#39;
+</span></code></pre>
+<h3 id="shi-yong-lei-xing-hu-lue-biao-ji-jin-yong-yi-xing-zhong-de-cuo-wu">使用类型忽略标记禁用一行中的错误：<a class="zola-anchor" href="#shi-yong-lei-xing-hu-lue-biao-ji-jin-yong-yi-xing-zhong-de-cuo-wu" aria-label="Anchor link for: shi-yong-lei-xing-hu-lue-biao-ji-jin-yong-yi-xing-zhong-de-cuo-wu">#</a></h3>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>x = </span><span style="color:#bf616a;">confusing_function</span><span>() </span><span style="color:#65737e;"># type: ignore # see mypy/issues/1167
+</span></code></pre>
+<h2 id="sheng-cheng-type-annotation">生成 type annotation<a class="zola-anchor" href="#sheng-cheng-type-annotation" aria-label="Anchor link for: sheng-cheng-type-annotation">#</a></h2>
+<ol>
+<li><code>mypy stubgen</code> <a rel="nofollow noreferrer" href="https://github.com/python/mypy/blob/master/mypy/stubgen.py">mypy/mypy/stubgen.py at master · python/mypy</a></li>
+<li><code>monkeytype</code> <a rel="nofollow noreferrer" href="https://github.com/Instagram/MonkeyType">Instagram/MonkeyType: A Python library that generates static type annotations by collecting runtime types</a></li>
+</ol>
+<h2 id="yi-xie-lei-xing-jian-cha-gong-ju">一些类型检查工具<a class="zola-anchor" href="#yi-xie-lei-xing-jian-cha-gong-ju" aria-label="Anchor link for: yi-xie-lei-xing-jian-cha-gong-ju">#</a></h2>
+<ol>
+<li><a rel="nofollow noreferrer" href="https://mypy-lang.org/">mypy - Optional Static Typing for Python</a></li>
+<li><a rel="nofollow noreferrer" href="https://github.com/microsoft/pyright">microsoft/pyright: Static Type Checker for Python</a></li>
+<li><a rel="nofollow noreferrer" href="https://github.com/facebook/pyre-check">facebook/pyre-check: Performant type-checking for python.</a></li>
+<li><a rel="nofollow noreferrer" href="https://github.com/google/pytype">google/pytype: A static type analyzer for Python code</a></li>
+</ol>
+<hr />
+
+        
+      </article>
+
+      
+      
+      <div class="giscus"></div>
+      
+      
+    </div>
+
+    <footer>
+  <div class="copyright">
+    <p>© 2024 shiyang07ca</p>
+
+  </div>
+  
+  <div class="credits">
+    powered by
+    <a href="https://www.getzola.org" target="_blank" rel='noreferrer noopener'>zola</a>
+    and
+    <a href="https://github.com/isunjn/serene" target="_blank" rel='noreferrer noopener'>serene</a>
+  </div>
+  
+</footer>
+  </main>
+</div>
+
+  
+<script src="/js/lightense.min.js"></script>
+
+
+  <script src="/js/main.js"></script>
+</body>
+
+</html>
