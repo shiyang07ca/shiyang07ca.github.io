@@ -1,5 +1,25 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/shiyang07ca/shiyang07ca.github.io</id><title>RSS feed of shiyang07ca's shiyang07ca.github.io</title><updated>2026-01-25T04:32:25.324462+00:00</updated><link href="https://github.com/shiyang07ca/shiyang07ca.github.io"/><link href="https://raw.githubusercontent.com/shiyang07ca/shiyang07ca.github.io/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/11</id><title>烧烤</title><updated>2026-01-25T04:32:25.624911+00:00</updated><content type="html"><![CDATA[<h2>羊肉串</h2>
+<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/shiyang07ca/shiyang07ca.github.io</id><title>RSS feed of shiyang07ca's shiyang07ca.github.io</title><updated>2026-01-25T04:37:50.724564+00:00</updated><link href="https://github.com/shiyang07ca/shiyang07ca.github.io"/><link href="https://raw.githubusercontent.com/shiyang07ca/shiyang07ca.github.io/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/12</id><title>主食类</title><updated>2026-01-25T04:37:51.237887+00:00</updated><content type="html"><![CDATA[<h2>豉油王炒面</h2>
+<ul>
+<li>主料：炒面300g</li>
+<li>辅料：肥仔芽菜/银芽300g，鸡汤100g，韭菜花60g，韭王60g 蒜苗，小米辣</li>
+<li>调料：豉油/生抽/美极15g，草菇老抽20g，辣鲜露15g</li>
+</ul>
+<h3>步骤</h3>
+<ul>
+<li>锅中加水，油，面条焯水2分钟盛出，放入豉油拌匀</li>
+<li>豆芽韭王蒜苗煸炒半熟</li>
+<li>中小火，下面条加鸡汤，小火煎香，加配菜炒匀出锅</li>
+</ul>
+<h2>朝鲜焖饭茄子</h2>
+<h3>步骤</h3>
+<ul>
+<li>大葱切碎，茄子细条备用</li>
+<li>锅中烧热加猪油，放入葱花茄子煸炒，放入生抽，黑胡椒，牛肉粉（十三香五香粉也行），盐</li>
+<li>米饭加水焖 10 分钟后，放入茄子</li>
+<li>拌饭酱：小米辣蒜末葱花芝麻辣椒面，po泼热油，放入生抽白糖</li>
+</ul>
+]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/12"/><category term="菜谱"/><published>2026-01-25T04:37:22+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/11</id><title>烧烤</title><updated>2026-01-25T04:37:51.449416+00:00</updated><content type="html"><![CDATA[<h2>羊肉串</h2>
 <ul>
 <li>主料：羊排肉、羊腿肉、羊上脑</li>
 <li>腌料：洋葱，盐，啤酒，红油</li>
@@ -14,7 +34,7 @@
 <li>主料：牛肋条去筋膜切薄片</li>
 <li>配料：洋葱香菜，耗油鸡精味精，芝麻孜然辣椒片，啤酒，全蛋，豆油，白糖</li>
 </ul>
-]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/11"/><category term="菜谱"/><published>2026-01-25T04:32:00+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/10</id><title>牛羊肉类</title><updated>2026-01-25T04:32:25.733548+00:00</updated><content type="html"><![CDATA[<h1>筋头巴脑</h1>
+]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/11"/><category term="菜谱"/><published>2026-01-25T04:32:00+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/10</id><title>牛羊肉类</title><updated>2026-01-25T04:37:51.683509+00:00</updated><content type="html"><![CDATA[<h1>筋头巴脑</h1>
 <h2>主配料</h2>
 <ul>
 <li>筋头巴脑</li>
@@ -51,7 +71,7 @@
 <li>加白糖 20g，鸡精 3g，耗油 20g，老抽 7g，盐，炖煮 20min</li>
 <li>出锅加香菜</li>
 </ul>
-]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/10"/><category term="菜谱"/><published>2025-06-20T16:07:22+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/9</id><title>汤类</title><updated>2026-01-25T04:32:25.853421+00:00</updated><content type="html"><![CDATA[<h1>参鸡汤</h1>
+]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/10"/><category term="菜谱"/><published>2025-06-20T16:07:22+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/9</id><title>汤类</title><updated>2026-01-25T04:37:51.904128+00:00</updated><content type="html"><![CDATA[<h1>参鸡汤</h1>
 <ul>
 <li>人参, 红枣 , 糯米, 香菇, 枸杞, 姜</li>
 <li>净膛小雏鸡, 放入温水焯烫去血水捞出</li>
@@ -59,7 +79,7 @@
 <li>锅中做开水, 放入鸡, 姜片, 人参, 红枣, 小火煲一小时以上</li>
 <li>出锅撒少许盐香葱调味即可</li>
 </ul>
-]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/9"/><category term="菜谱"/><published>2025-04-20T04:47:01+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/8</id><title>凉菜类</title><updated>2026-01-25T04:32:25.975801+00:00</updated><content type="html"><![CDATA[<h1>芹菜拌花生</h1>
+]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/9"/><category term="菜谱"/><published>2025-04-20T04:47:01+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/8</id><title>凉菜类</title><updated>2026-01-25T04:37:52.104352+00:00</updated><content type="html"><![CDATA[<h1>芹菜拌花生</h1>
 <h2>主配料</h2>
 <ul>
 <li>芹菜，胡萝卜，花生米</li>
@@ -79,7 +99,7 @@
 <li>二荆条辣椒在铁锅中煸干至表面呈现虎皮状, 撕成条备用</li>
 <li>皮蛋, 辣椒捣碎加入料汁, 撒香油装盘</li>
 </ul>
-]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/8"/><category term="菜谱"/><published>2025-04-20T03:56:01+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/7</id><title>Python type challenges</title><updated>2026-01-25T04:32:26.118431+00:00</updated><content type="html"><![CDATA[<h2>Python 为什么要需要类型 <a href="https://bernat.tech/posts/the-state-of-type-hints-in-python/">1</a></h2>
+]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/8"/><category term="菜谱"/><published>2025-04-20T03:56:01+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/7</id><title>Python type challenges</title><updated>2026-01-25T04:37:52.284166+00:00</updated><content type="html"><![CDATA[<h2>Python 为什么要需要类型 <a href="https://bernat.tech/posts/the-state-of-type-hints-in-python/">1</a></h2>
 <ul>
 <li>标注所有参数和返回类型可以更容易理解代码，更易于修改或添加代码</li>
 <li>在使用库时，可以更容易地检查类型，方便 IDE 代码补全以及检查错误参数</li>
@@ -1038,7 +1058,7 @@ reveal_type(c)         # -&gt; error: Revealed type is &#x27;builtins.list[built
 <li><a href="https://github.com/google/pytype">google/pytype: A static type analyzer for Python code</a></li>
 </ol>
 <hr />
-]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/7"/><category term="Python"/><published>2024-10-20T07:10:34+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/6</id><title>小吃类</title><updated>2026-01-25T04:32:26.260396+00:00</updated><content type="html"><![CDATA[<h2>烤冷面-赖皮猴版</h2>
+]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/7"/><category term="Python"/><published>2024-10-20T07:10:34+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/6</id><title>小吃类</title><updated>2026-01-25T04:37:52.523606+00:00</updated><content type="html"><![CDATA[<h2>烤冷面-赖皮猴版</h2>
 <ul>
 <li>利民蒜蓉辣酱 80 克，天山红番茄沙司 100 克，白糖 40 克，太太乐鸡粉 10 克，味精 10 克，耗油 6 克，户户辣椒酱 10 克，半颗粒孜然粉 4 克，玉米淀粉 2 克，雪碧 20 克，清水 130 克。在锅中搅拌均匀熬好</li>
 <li>葱花香菜洋葱碎适量</li>
@@ -1069,7 +1089,7 @@ reveal_type(c)         # -&gt; error: Revealed type is &#x27;builtins.list[built
 <li>鸡爪清晰干净劈开串串</li>
 <li>水分烤干刷油烤脆，再刷酱，撒芝麻孜然辣椒面</li>
 </ul>
-]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/6"/><category term="菜谱"/><published>2024-08-17T13:02:16+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/5</id><title>TODO</title><updated>2026-01-25T04:32:26.362448+00:00</updated><content type="html"><![CDATA[<h1>TODO: blog 优化</h1>
+]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/6"/><category term="菜谱"/><published>2024-08-17T13:02:16+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/5</id><title>TODO</title><updated>2026-01-25T04:37:52.733508+00:00</updated><content type="html"><![CDATA[<h1>TODO: blog 优化</h1>
 <ul>
 <li><input disabled="" type="checkbox"> 配置 MkDocs 作为笔记子目录</li>
 <li><input disabled="" type="checkbox"> 支持 issue DRAFT 标签，zola 编译时不渲染文章</li>
@@ -1081,7 +1101,7 @@ reveal_type(c)         # -&gt; error: Revealed type is &#x27;builtins.list[built
 <li><input disabled="" type="checkbox"> 配置 CDN 加速</li>
 <li><input disabled="" type="checkbox"> 测试 Vercel 部署</li>
 </ul>
-]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/5"/><category term="TODO"/><published>2023-11-14T11:33:33+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/4</id><title>鱼虾海鲜河鲜类</title><updated>2026-01-25T04:32:26.465139+00:00</updated><content type="html"><![CDATA[<h1>TODO</h1>
+]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/5"/><category term="TODO"/><published>2023-11-14T11:33:33+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/4</id><title>鱼虾海鲜河鲜类</title><updated>2026-01-25T04:37:52.916148+00:00</updated><content type="html"><![CDATA[<h1>TODO</h1>
 <h2>酱油水煮杂鱼</h2>
 <ul>
 <li>小杂鱼改斜刀（叶子鱼，梭子鱼，刺中鱼，金线鱼，朱带，黄花，黄刺，银鲳鱼）</li>
@@ -1089,7 +1109,7 @@ reveal_type(c)         # -&gt; error: Revealed type is &#x27;builtins.list[built
 <li>糖，生抽，老抽，蚝油，花雕酒，水，葱油白胡椒调碗汁备用</li>
 <li>锅烧热放底油，放入姜蒜豆豉小米椒，放入萝卜干，鱼（注意不需要煎鱼），倒入碗汁，小火煮制 5 分钟，出锅放葱段，葱油</li>
 </ul>
-]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/4"/><category term="菜谱"/><published>2023-10-29T14:43:46+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/3</id><title>蔬菜类</title><updated>2026-01-25T04:32:26.565678+00:00</updated><content type="html"><![CDATA[<h1>果仁菠菜</h1>
+]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/4"/><category term="菜谱"/><published>2023-10-29T14:43:46+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/3</id><title>蔬菜类</title><updated>2026-01-25T04:37:53.114720+00:00</updated><content type="html"><![CDATA[<h1>果仁菠菜</h1>
 <ul>
 <li>菠菜用刀拍，撕成丝，切2寸长。</li>
 <li>下锅烫菠菜梗，开锅放菠菜叶，叶绿捞出。</li>
@@ -1103,7 +1123,7 @@ reveal_type(c)         # -&gt; error: Revealed type is &#x27;builtins.list[built
 <li>锅中留底油，加入葱姜片煸炒。小火加入花椒面，酱油，香其酱煸炒。放入清水，加入茄子和土豆。根据汤的咸淡看是否需要补盐</li>
 <li>茄子土豆炖熟后捣成酱，注意锅中要留一些汤。快出锅时加入葱花，青椒碎，蒜沫，香菜沫</li>
 </ul>
-]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/3"/><category term="菜谱"/><published>2023-10-29T14:42:19+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/2</id><title>猪肉类</title><updated>2026-01-25T04:32:26.665423+00:00</updated><content type="html"><![CDATA[<h1>糖醋排骨（村驴）</h1>
+]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/3"/><category term="菜谱"/><published>2023-10-29T14:42:19+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/2</id><title>猪肉类</title><updated>2026-01-25T04:37:53.306510+00:00</updated><content type="html"><![CDATA[<h1>糖醋排骨（村驴）</h1>
 <ul>
 <li>
 主配料<ul>
@@ -1178,7 +1198,7 @@ reveal_type(c)         # -&gt; error: Revealed type is &#x27;builtins.list[built
 <p>3.锅内加入2匙蚝油、少许酱油后，拌炒出酱香味</p>
 <p>4.加入米酒后，倒入水淹至猪肉表面</p>
 <p>5.撒入白胡椒粉，盖锅熬煮25分钟，完成</p>
-]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/2"/><category term="菜谱"/><published>2023-09-21T15:39:39+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/1</id><title>Fisrt Blog</title><updated>2026-01-25T04:32:26.790026+00:00</updated><content type="html"><![CDATA[<p>Test update </p>
+]]></content><link href="https://github.com/shiyang07ca/shiyang07ca.github.io/issues/2"/><category term="菜谱"/><published>2023-09-21T15:39:39+00:00</published></entry><entry><id>https://github.com/shiyang07ca/shiyang07ca.github.io/issues/1</id><title>Fisrt Blog</title><updated>2026-01-25T04:37:53.518330+00:00</updated><content type="html"><![CDATA[<p>Test update </p>
 <h1>Test Style</h1>
 <h2>Layer</h2>
 <h1>Second</h1>
