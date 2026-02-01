@@ -7,3 +7,6 @@ venv/
 draft/
 
 content/blog/*.md
+
+# Zola build output
+public/
