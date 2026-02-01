@@ -38,8 +38,7 @@ jobs:
 
       - name: Generate README and RSS
         run: |
-          pip install -r requirements.txt
-          python scripts/main.py ${{ secrets.BLOG_KEY }} ${{ github.repository }} --issue_number '${{ github.event.issue.number }}'
+          python -m scripts.main ${{ secrets.BLOG_KEY }} ${{ github.repository }} --issue_number '${{ github.event.issue.number }}'
 
       - name: Commit and Push
         run: |

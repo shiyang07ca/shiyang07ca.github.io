@@ -5,14 +5,20 @@
 从 GitHub Issues 同步文章并转换为 Zola 兼容的 Markdown 格式
 """
 
+from __future__ import annotations
+
 import argparse
 import os
 import sys
+from typing import TYPE_CHECKING
 
 # 添加当前目录到 Python 路径
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from utils import BACKUP_DIR, get_me, get_repo, get_to_generate_issues, is_me, login
+from .utils import get_me, get_repo, get_to_generate_issues, is_me, login
+
+if TYPE_CHECKING:
+    from github.Issue import Issue
 
 # Zola 文章模板
 ZOLA_TEMPLATE = """+++
@@ -46,7 +52,35 @@ truncate_summary = false
 MARKDOWN_TITLE_TEMPLATE = "# [{title}]({url})\n\n"
 
 
-def save_issue_as_zola(issue, me, posts_dir="content/posts"):
+def sanitize_description(text: str | None, max_length: int = 100) -> str:
+    """
+    清理描述文本，移除 TOML 不支持的特殊字符
+
+    Args:
+        text: 原始文本
+        max_length: 最大长度
+
+    Returns:
+        清理后的安全文本
+    """
+    if not text:
+        return ""
+
+    # 移除 Markdown 格式字符和特殊字符
+    result = text.replace("#", "").replace("*", "").replace("_", "").replace("`", "")
+    result = result.replace('"', "'").replace("\\", "")
+    result = result.replace("\n", " ").replace("\r", " ")
+    result = result.replace("[", "(").replace("]", ")")
+    result = result.strip()
+
+    # 限制长度
+    if len(result) > max_length:
+        result = result[:max_length].strip()
+
+    return result
+
+
+def save_issue_as_zola(issue: Issue, me: str, posts_dir: str = "content/posts") -> str:
     """
     将 GitHub Issue 保存为 Zola 格式的 Markdown 文件
 
@@ -74,14 +108,18 @@ def save_issue_as_zola(issue, me, posts_dir="content/posts"):
         issue.updated_at.strftime("%Y-%m-%d") if issue.updated_at else date_str
     )
 
-    # 截取描述（取前 200 字符）
-    description = issue.body[:200].replace("\n", " ").strip() if issue.body else title
+    # 清理描述（移除特殊字符）
+    description = (
+        sanitize_description(issue.body, max_length=100)
+        if issue.body
+        else sanitize_description(title, max_length=100)
+    )
 
     # 处理内容，添加锚点标题
     content = MARKDOWN_TITLE_TEMPLATE.format(title=issue.title, url=issue.html_url)
-    content += issue.body
+    content += issue.body or ""
 
-    # 添加作者评论
+    # 添加作者评论（IssueComment 与 Issue 均有 user.login）
     if issue.comments:
         for c in issue.get_comments():
             if is_me(c, me):
@@ -97,14 +135,13 @@ def save_issue_as_zola(issue, me, posts_dir="content/posts"):
         content=content,
     )
 
-    # 保存文件
     with open(md_name, "w", encoding="utf-8") as f:
         f.write(zola_content)
 
     return md_name
 
 
-def main(token, repo_name, posts_dir="content/posts"):
+def main(token: str, repo_name: str, posts_dir: str = "content/posts") -> None:
     """
     主函数：从 GitHub Issues 生成博客文章
 
@@ -121,8 +158,8 @@ def main(token, repo_name, posts_dir="content/posts"):
     if not os.path.exists(posts_dir):
         os.makedirs(posts_dir, exist_ok=True)
 
-    # 获取并生成文章
-    to_generate_issues = get_to_generate_issues(repo, BACKUP_DIR)
+    # 根据 posts 目录判断已生成
+    to_generate_issues = get_to_generate_issues(repo, posts_dir)
 
     generated_count = 0
     for issue in to_generate_issues:
@@ -137,14 +174,13 @@ def main(token, repo_name, posts_dir="content/posts"):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="生成 Zola 格式博客文章")
-    parser.add_argument("github_token", help="GitHub Personal Access Token")
-    parser.add_argument("repo_name", help="仓库名称 (owner/repo)")
-    parser.add_argument(
+    _ = parser.add_argument("github_token", help="GitHub Personal Access Token")
+    _ = parser.add_argument("repo_name", help="仓库名称 (owner/repo)")
+    _ = parser.add_argument(
         "--posts_dir",
         default="content/posts",
         help="文章保存目录 (默认: content/posts)",
     )
 
-    args = parser.parse_args()
-
-    main(args.github_token, args.repo_name, args.posts_dir)
+    args: argparse.Namespace = parser.parse_args()
+    main(str(args.github_token), str(args.repo_name), str(args.posts_dir))

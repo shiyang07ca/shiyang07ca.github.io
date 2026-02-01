@@ -5,10 +5,14 @@
 从 GitHub Issues 同步文章信息，生成 README 索引和 RSS feed
 """
 
+from __future__ import annotations
+
 import argparse
 import os
 import re
 import sys
+import io
+from typing import TYPE_CHECKING, cast
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
@@ -26,21 +30,27 @@ from .utils import (
     get_me,
     get_repo,
     get_repo_labels,
+    get_to_generate_issues,
     get_todo_issues,
     get_top_issues,
     is_me,
     login,
+    save_issue_to_file,
 )
+
+if TYPE_CHECKING:
+    from github.Issue import Issue
+    from github.IssueComment import IssueComment
+    from github.Repository import Repository
 
 # README 头部模板
 MD_HEAD = """# {name}'s Blog
 
-个人技术博客，使用 GitHub Issues 和 GitHub Actions 自动构建。
+个人博客，使用 GitHub Actions 自动构建
 
 ## 订阅
 
 - [RSS 订阅](https://raw.githubusercontent.com/{repo_name}/master/feed.xml)
-- [Atom 订阅](https://raw.githubusercontent.com/{repo_name}/master/atom.xml)
 
 ---
 
@@ -56,19 +66,19 @@ FRIENDS_INFO_DICT = {
 }
 
 
-def is_hearted_by_me(comment, me):
+def is_hearted_by_me(comment: IssueComment, me: str) -> bool:
     """检查评论是否被当前用户点赞"""
     reactions = list(comment.get_reactions())
     return any(r.content == "heart" and r.user.login == me for r in reactions)
 
 
-def make_friend_table_string(s):
+def make_friend_table_string(s: str) -> str | None:
     """解析友链信息并生成表格行"""
     info_dict = FRIENDS_INFO_DICT.copy()
     try:
-        string_list = [l for l in s.splitlines() if l and not l.isspace()]
-        for l in string_list:
-            string_info_list = re.split("：", l, maxsplit=1)
+        string_list = [line for line in s.splitlines() if line and not line.isspace()]
+        for line in string_list:
+            string_info_list = re.split("：", line, maxsplit=1)
             if len(string_info_list) >= 2:
                 info_dict[string_info_list[0]] = string_info_list[1]
 
@@ -80,7 +90,7 @@ def make_friend_table_string(s):
         return None
 
 
-def valid_xml_char_ordinal(c):
+def valid_xml_char_ordinal(c: str) -> bool:
     """检查字符是否为有效 XML 字符"""
     codepoint = ord(c)
     return (
@@ -91,32 +101,36 @@ def valid_xml_char_ordinal(c):
     )
 
 
-def add_issue_info(issue, md_file):
+def add_issue_info(issue: Issue, md_file: io.TextIOBase) -> None:
     """向 README 添加 issue 信息"""
     time = format_time(issue.created_at)
-    md_file.write(f"- [{issue.title}]({issue.html_url}) - {time}\n")
+    _ = md_file.write(f"- [{issue.title}]({issue.html_url}) - {time}\n")
 
 
-def add_md_header(md_file, repo_name, owner_name):
+def add_md_header(
+    md_file: io.TextIOBase, repo_name: str, owner_name: str
+) -> None:
     """添加 README 头部"""
-    md_file.write(MD_HEAD.format(name=owner_name, repo_name=repo_name))
+    _ = md_file.write(MD_HEAD.format(name=owner_name, repo_name=repo_name))
 
 
-def add_md_top(repo, md_file, me):
+def add_md_top(repo: Repository, md_file: io.TextIOBase, me: str) -> None:
     """添加置顶文章"""
     top_issues = list(get_top_issues(repo))
     if not top_issues:
         return
 
-    md_file.write("## 置顶文章\n\n")
+    _ = md_file.write("## 置顶文章\n\n")
     for issue in top_issues:
         if is_me(issue, me):
             add_issue_info(issue, md_file)
 
 
-def add_md_recent(repo, md_file, me, limit=10):
+def add_md_recent(
+    repo: Repository, md_file: io.TextIOBase, me: str, limit: int = 10
+) -> None:
     """添加最近更新文章"""
-    md_file.write("## 最近更新\n\n")
+    _ = md_file.write("## 最近更新\n\n")
     count = 0
 
     try:
@@ -130,14 +144,13 @@ def add_md_recent(repo, md_file, me, limit=10):
         print(f"获取最近文章失败: {e}")
 
 
-def add_md_label(repo, md_file, me):
+def add_md_label(repo: Repository, md_file: io.TextIOBase, me: str) -> None:
     """按标签分类添加文章"""
     labels = get_repo_labels(repo)
     labels = sorted(
         labels,
         key=lambda x: (
-            x.description is None,
-            x.description == "",
+            (x.description or "") == "",
             x.description or "",
             x.name,
         ),
@@ -151,75 +164,76 @@ def add_md_label(repo, md_file, me):
         if not issues.totalCount:
             continue
 
-        md_file.write(f"\n## {label.name}\n\n")
-        issues = sorted(issues, key=lambda x: x.created_at, reverse=True)
+        _ = md_file.write(f"\n## {label.name}\n\n")
+        issues_list = sorted(issues, key=lambda x: x.created_at, reverse=True)
 
         i = 0
-        for issue in issues:
+        for issue in issues_list:
             if is_me(issue, me):
                 if i == ANCHOR_NUMBER:
-                    md_file.write("<details><summary>显示更多</summary>\n\n")
+                    _ = md_file.write("<details><summary>显示更多</summary>\n\n")
                 add_issue_info(issue, md_file)
                 i += 1
 
         if i > ANCHOR_NUMBER:
-            md_file.write("</details>\n")
+            _ = md_file.write("</details>\n")
 
 
-def add_md_todo(repo, md_file, me):
+def add_md_todo(repo: Repository, md_file: io.TextIOBase, me: str) -> None:
     """添加 TODO 列表"""
     todo_issues = list(get_todo_issues(repo))
     if not todo_issues:
         return
 
-    md_file.write("\n## TODO 列表\n\n")
+    _ = md_file.write("\n## TODO 列表\n\n")
 
     for issue in todo_issues:
         if not is_me(issue, me):
             continue
 
-        # 解析 TODO 项目
-        body = issue.body.splitlines()
-        todo_undone = [l for l in body if l.startswith("- [ ] ")]
-        todo_done = [l for l in body if l.startswith("- [x] ")]
+        body = (issue.body or "").splitlines()
+        todo_undone = [line for line in body if line.startswith("- [ ] ")]
+        todo_done = [line for line in body if line.startswith("- [x] ")]
 
         todo_title = (
             f"[{issue.title}]({issue.html_url}) "
             f"- {len(todo_done)} 完成, {len(todo_undone)} 待办"
         )
 
-        md_file.write(f"### {todo_title}\n\n")
+        _ = md_file.write(f"### {todo_title}\n\n")
 
         for t in todo_done + todo_undone:
-            md_file.write(f"{t}\n")
-        md_file.write("\n")
+            _ = md_file.write(f"{t}\n")
+        _ = md_file.write("\n")
 
 
-def add_md_friends(repo, md_file, me):
+def add_md_friends(repo: Repository, md_file: io.TextIOBase, me: str) -> None:
     """添加友情链接"""
     friends_issues = list(repo.get_issues(labels=FRIENDS_LABELS))
     if not friends_issues:
         return
 
-    md_file.write("\n## 友情链接\n\n")
-    md_file.write(FRIENDS_TABLE_HEAD)
+    _ = md_file.write("\n## 友情链接\n\n")
+    _ = md_file.write(FRIENDS_TABLE_HEAD)
 
     for issue in friends_issues:
         for comment in issue.get_comments():
             if is_hearted_by_me(comment, me):
-                row = make_friend_table_string(comment.body)
+                row = make_friend_table_string(comment.body or "")
                 if row:
-                    md_file.write(row)
+                    _ = md_file.write(row)
 
 
-def generate_rss_feed(repo, filename, me):
-    """生成 RSS/Atom 订阅源"""
+def generate_rss_feed(
+    repo: Repository, filename: str, me: str
+) -> None:
+    """生成 RSS 订阅源"""
     generator = FeedGenerator()
-    generator.id(repo.html_url)
-    generator.title(f"{repo.owner.login}'s Blog")
-    generator.subtitle("技术博客文章订阅")
-    generator.link(href=repo.html_url)
-    generator.link(
+    _ = generator.id(repo.html_url)
+    _ = generator.title(f"{repo.owner.login}'s Blog")
+    _ = generator.subtitle("技术博客文章订阅")
+    _ = generator.link(href=repo.html_url)
+    _ = generator.link(
         href=f"https://raw.githubusercontent.com/{repo.full_name}/master/{filename}",
         rel="self",
     )
@@ -229,25 +243,28 @@ def generate_rss_feed(repo, filename, me):
             continue
 
         item = generator.add_entry(order="append")
-        item.id(issue.html_url)
-        item.link(href=issue.html_url)
-        item.title(issue.title)
-        item.published(issue.created_at.strftime("%Y-%m-%dT%H:%M:%SZ"))
+        _ = item.id(issue.html_url)
+        _ = item.link(href=issue.html_url)
+        _ = item.title(issue.title)
+        _ = item.published(issue.created_at.strftime("%Y-%m-%dT%H:%M:%SZ"))
 
         for label in issue.labels:
-            item.category({"term": label.name})
+            _ = item.category({"term": label.name})
 
-        # 清理并转换内容
-        body = "".join(c for c in issue.body if valid_xml_char_ordinal(c))
-        item.content(CDATA(marko.convert(body)), type="html")
+        body = "".join(
+            c for c in issue.body if valid_xml_char_ordinal(c)
+        )
+        _ = item.content(CDATA(marko.convert(body)), type="html")
 
-    # 生成 Atom 格式
-    generator.atom_file("atom.xml")
-    # 生成 RSS 格式
     generator.rss_file(filename)
 
 
-def main(token, repo_name, issue_number=None, backup_dir=BACKUP_DIR):
+def main(
+    token: str,
+    repo_name: str,
+    issue_number: int | None = None,
+    backup_dir: str = BACKUP_DIR,
+) -> None:
     """主函数：生成 README 和 RSS"""
     user = login(token)
     me = get_me(user)
@@ -274,12 +291,11 @@ def main(token, repo_name, issue_number=None, backup_dir=BACKUP_DIR):
 
     for issue in to_generate_issues:
         if is_me(issue, me):
-            save_issue_to_file(issue, me, backup_dir)
+            _ = save_issue_to_file(issue, me, backup_dir)
 
     print("生成完成！")
     print("- README.md: 更新完成")
     print("- feed.xml: RSS 订阅源已生成")
-    print("- atom.xml: Atom 订阅源已生成")
     print("- BACKUP/: 文章备份已更新")
 
 
@@ -288,9 +304,16 @@ if __name__ == "__main__":
         os.makedirs(BACKUP_DIR, exist_ok=True)
 
     parser = argparse.ArgumentParser(description="生成 README 和 RSS")
-    parser.add_argument("github_token", help="GitHub Personal Access Token")
-    parser.add_argument("repo_name", help="仓库名称 (owner/repo)")
-    parser.add_argument("--issue_number", help="指定 Issue 编号", default=None)
+    _ = parser.add_argument("github_token", help="GitHub Personal Access Token")
+    _ = parser.add_argument("repo_name", help="仓库名称 (owner/repo)")
+    _ = parser.add_argument("--issue_number", help="指定 Issue 编号", default=None)
 
-    args = parser.parse_args()
-    main(args.github_token, args.repo_name, args.issue_number)
+    args: argparse.Namespace = parser.parse_args()
+    issue_num: int | None = (
+        int(cast(str, args.issue_number)) if args.issue_number else None
+    )
+    main(
+        cast(str, args.github_token),
+        cast(str, args.repo_name),
+        issue_num,
+    )

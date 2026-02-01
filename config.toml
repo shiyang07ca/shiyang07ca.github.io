@@ -16,16 +16,18 @@ generate_feeds = true
 feed_filenames = ["feed.xml"]
 taxonomies = [{ name = "tags" }, { name = "categories" }]
 
-# Markdown 渲染配置
+# Markdown 渲染配置（smart_punctuation 关闭以免代码块内引号被替换）
 [markdown]
 render_emoji = false
 external_links_target_blank = false
 external_links_no_follow = true
 external_links_no_referrer = true
-smart_punctuation = true
+smart_punctuation = false
 
 [markdown.highlighting]
-theme = "github-light"
+style = "class"
+light_theme = "github-light"
+dark_theme = "github-dark"
 
 # URL 格式化配置
 [slugify]
@@ -37,13 +39,13 @@ anchors = "on"
 # Serene 主题扩展配置
 [extra]
 # 个人信息
-name = "Shiyang"
+name = "Blog"
 id = "shiyang07ca"
 bio = "Cheese is power"
 # avatar = "img/avatar.webp"
 links = [
     { name = "GitHub", icon = "github", url = "https://github.com/shiyang07ca" },
-    { name = "Email", icon = "email", url = "mailto:shiyang@example.com" },
+    { name = "Email", icon = "email", url = "mailto:shiyang07ca@gmail.com" },
 ]
 
 # 语法高亮主题
@@ -80,6 +82,11 @@ copy = true
 comment = false
 display_tags = true
 truncate_summary = false
+
+# 匿名表情反应（需自建 API 才启用）
+reaction = false
+reaction_align = "right"
+reaction_endpoint = "https://example.com/api/reaction"
 
 # 内容过期提醒
 outdate_alert = false
