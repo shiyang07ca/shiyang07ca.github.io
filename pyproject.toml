@@ -1,0 +1,10 @@
+[project]
+name = "shiyang07ca-github-io"
+version = "0.1.0"
+description = "MkDocs source for shiyang07ca.github.io"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "mkdocs>=1.6.1",
+    "mkdocs-rss-plugin>=1.17.1",
+]
