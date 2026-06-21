@@ -3,5 +3,6 @@ nohup.out
 .git-credentials
 venv/
 .venv/
+.worktrees/
 
 site/
