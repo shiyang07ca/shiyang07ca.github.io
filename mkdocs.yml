@@ -21,6 +21,7 @@ nav:
       - 2026: content/diary/2026.md
   - 厨房备忘录:
       - 猪肉类: content/cookbook/猪肉类.md
+      - 鸡禽类: content/cookbook/鸡禽类.md
       - 蔬菜类: content/cookbook/蔬菜类.md
       - 水产类: content/cookbook/水产类.md
       - 小吃类: content/cookbook/小吃类.md
@@ -29,6 +30,8 @@ nav:
       - 牛羊肉类: content/cookbook/牛羊肉类.md
       - 烧烤: content/cookbook/烧烤.md
       - 主食类: content/cookbook/主食类.md
+      - 甜品饮品类: content/cookbook/甜品饮品类.md
+      - 基础技法与酱料: content/cookbook/基础技法与酱料.md
 
 markdown_extensions:
   - admonition
