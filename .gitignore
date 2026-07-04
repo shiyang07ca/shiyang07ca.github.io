@@ -7,3 +7,5 @@ venv/
 .codex-local/
 
 site/
+.vscode/
+config/mcporter.json
