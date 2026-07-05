@@ -8,6 +8,7 @@ site_dir: site
 
 theme:
   name: readthedocs
+  custom_dir: overrides
   language: zh
   highlightjs: true
   hljs_languages:
@@ -44,6 +45,7 @@ markdown_extensions:
 
 plugins:
   - search:
+      min_search_length: 2
       lang:
         - en
         - ja
